@@ -3,7 +3,6 @@ package com.example.onlinebankingfinal.model;
 import com.example.onlinebankingfinal.model.enums.AccountStatus;
 import com.example.onlinebankingfinal.model.enums.AccountType;
 import com.example.onlinebankingfinal.model.enums.CurrencyCode;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
