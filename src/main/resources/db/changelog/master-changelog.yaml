@@ -1,14 +1,14 @@
 databaseChangeLog:
   - include:
       file: db/changelog/changes/create-tables.yaml
-  - include:
-      file: db/changelog/changes/insert-data-tables-1.yaml
-  - include:
-      file: db/changelog/changes/insert-data-tables-2.yaml
-  - include:
-      file: db/changelog/changes/insert-data-tables-3.yaml
-  - include:
-      file: db/changelog/changes/insert-data-tables-4.yaml
+#  - include:
+#      file: db/changelog/changes/insert-data-tables-1.yaml
+#  - include:
+#      file: db/changelog/changes/insert-data-tables-2.yaml
+#  - include:
+#      file: db/changelog/changes/insert-data-tables-3.yaml
+#  - include:
+#      file: db/changelog/changes/insert-data-tables-4.yaml
   - include:
       file: db/changelog/changes/add-foreign-key-constraint.yaml
-
+#

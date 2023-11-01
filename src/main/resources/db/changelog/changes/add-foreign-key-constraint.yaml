@@ -1,6 +1,110 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
+      id: addForeignKeyToAccountClient
       author: admin
       changes:
-        -
+        - addForeignKeyConstraint:
+            baseTableName: accounts
+            baseColumnNames: client_id
+            referencedTableName: clients
+            referencedColumnNames: client_id
+            constraintName: FK_accounts_clients
+
+  - changeSet:
+      id: addForeignKeyToAccountCard
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: accounts
+            baseColumnNames: card_id
+            referencedTableName: cards
+            referencedColumnNames: card_id
+            constraintName: FK_accounts_cards
+
+  - changeSet:
+      id: addForeignKeyToAgreementProduct
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: agreements
+            baseColumnNames: product_id
+            referencedTableName: products
+            referencedColumnNames: product_id
+            constraintName: FK_agreements_products
+
+  - changeSet:
+      id: addForeignKeyToAgreementAccount
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: agreements
+            baseColumnNames: account_id
+            referencedTableName: accounts
+            referencedColumnNames: account_id
+            constraintName: FK_agreements_accounts
+
+  - changeSet:
+      id: addForeignKeyToClientManager
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: clients
+            baseColumnNames: manager_id
+            referencedTableName: managers
+            referencedColumnNames: manager_id
+            constraintName: FK_clients_managers
+
+  - changeSet:
+      id: addForeignKeyToCardClient
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: cards
+            baseColumnNames: client_id
+            referencedTableName: clients
+            referencedColumnNames: client_id
+            constraintName: FK_cards_clients
+
+  - changeSet:
+      id: addForeignKeyToCardAccount
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: cards
+            baseColumnNames: account_id
+            referencedTableName: accounts
+            referencedColumnNames: account_id
+            constraintName: FK_cards_accounts
+
+  - changeSet:
+      id: addForeignKeyToProductManager
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: manager_id
+            referencedTableName: managers
+            referencedColumnNames: manager_id
+            constraintName: FK_products_managers
+
+  - changeSet:
+      id: addForeignKeyToTransactionDebitAccount
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            baseColumnNames: debit_account_id
+            referencedTableName: accounts
+            referencedColumnNames: account_id
+            constraintName: FK_transactions_debit_accounts
+
+  - changeSet:
+      id: addForeignKeyToTransactionCreditAccount
+      author: admin
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            baseColumnNames: credit_account_id
+            referencedTableName: accounts
+            referencedColumnNames: account_id
+            constraintName: FK_transactions_credit_accounts
