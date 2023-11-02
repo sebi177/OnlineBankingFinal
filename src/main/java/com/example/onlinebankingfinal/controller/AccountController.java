@@ -18,26 +18,26 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping("/create")
-    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
-        Account createdAccount = accountService.createAccount(account);
+    public ResponseEntity<AccountDTO> createAccount(@RequestBody Account account) {
+        AccountDTO createdAccount = accountService.createAccount(account);
         return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{accountId}")
-    public ResponseEntity<Account> getAccountById(@PathVariable UUID accountId) {
-        Account foundedAccount = accountService.getById(accountId);
+    public ResponseEntity<AccountDTO> getAccountById(@PathVariable UUID accountId) {
+        AccountDTO foundedAccount = accountService.getDtoById(accountId);
         return new ResponseEntity<>(foundedAccount, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Account>> getAllAccounts(){
-        List<Account> accountList = accountService.getAllAccounts();
+    public ResponseEntity<List<AccountDTO>> getAllAccounts(){
+        List<AccountDTO> accountList = accountService.getAllAccounts();
         return new ResponseEntity<>(accountList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{accountId}")
-    public ResponseEntity<Account> updateAccount(@PathVariable UUID accountId,@RequestBody AccountDTO accountDTO){
-        Account updatedAccount = accountService.updateAccount(accountId, accountDTO);
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable UUID accountId,@RequestBody AccountDTO accountDTO){
+        AccountDTO updatedAccount = accountService.updateAccount(accountId, accountDTO);
         return new ResponseEntity<>(updatedAccount, HttpStatus.ACCEPTED);
     }
 

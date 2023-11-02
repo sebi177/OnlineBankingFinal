@@ -19,8 +19,13 @@ public class AccountServiceImpl implements AccountService {
     private final AccountMapper accountMapper;
 
     @Override
-    public Account createAccount(Account account) {
-        return accountRepository.save(account);
+    public AccountDTO createAccount(Account account) {
+        return accountMapper.toDTO(accountRepository.save(account));
+    }
+
+    @Override
+    public AccountDTO getDtoById(UUID accountId) {
+        return accountMapper.toDTO(getById(accountId));
     }
 
     @Override
@@ -30,15 +35,15 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    public List<AccountDTO> getAllAccounts() {
+        return accountMapper.toDTO(accountRepository.findAll());
     }
 
     @Override
-    public Account updateAccount(UUID accountId, AccountDTO accountDTO) {
+    public AccountDTO updateAccount(UUID accountId, AccountDTO accountDTO) {
         Account existingAccount = getById(accountId);
         accountMapper.updateAccountFromDTO(accountDTO, existingAccount);
-        return accountRepository.save(existingAccount);
+        return accountMapper.toDTO(accountRepository.save(existingAccount));
     }
 
     @Override

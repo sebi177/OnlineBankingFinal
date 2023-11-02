@@ -8,13 +8,15 @@ import java.util.UUID;
 
 public interface AccountService {
 
-    Account createAccount(Account account);
+    AccountDTO createAccount(Account account);
+
+    AccountDTO getDtoById(UUID accountId);
 
     Account getById(UUID accountId);
 
-    List<Account> getAllAccounts();
+    List<AccountDTO> getAllAccounts();
 
-    Account updateAccount(UUID accountId, AccountDTO accountDTO);
+    AccountDTO updateAccount(UUID accountId, AccountDTO accountDTO);
 
     void deleteAccount(UUID accountId);
 }

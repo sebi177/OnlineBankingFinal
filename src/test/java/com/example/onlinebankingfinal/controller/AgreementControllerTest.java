@@ -74,8 +74,8 @@ public class AgreementControllerTest {
     public void testUpdateAgreement() throws Exception {
         UUID agreementId = UUID.randomUUID();
         AgreementDTO agreementDTO = new AgreementDTO();
-        agreementDTO.setInterestRate(String.valueOf(5.0));
-        agreementDTO.setAgreementSum(String.valueOf(1000.0));
+        agreementDTO.setInterestRate(String.valueOf(5.00));
+        agreementDTO.setAgreementSum(String.valueOf(1000.00));
 
         Agreement updatedAgreement = new Agreement();
         updatedAgreement.setInterestRate(5.0);
