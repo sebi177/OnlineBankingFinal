@@ -18,26 +18,26 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping("/create")
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
-        Transaction createdTransaction = transactionService.createTransaction(transaction);
+    public ResponseEntity<TransactionDTO> createTransaction(@RequestBody Transaction transaction) {
+        TransactionDTO createdTransaction = transactionService.createTransaction(transaction);
         return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{transactionId}")
-    public ResponseEntity<Transaction> getTransactionById(@PathVariable UUID transactionId) {
-        Transaction foundedTransaction = transactionService.getById(transactionId);
+    public ResponseEntity<TransactionDTO> getTransactionById(@PathVariable UUID transactionId) {
+        TransactionDTO foundedTransaction = transactionService.getDtoById(transactionId);
         return new ResponseEntity<>(foundedTransaction, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Transaction>> getAllTransactions(){
-        List<Transaction> transactionList = transactionService.getAllTransaction();
+    public ResponseEntity<List<TransactionDTO>> getAllTransactions(){
+        List<TransactionDTO> transactionList = transactionService.getAllTransaction();
         return new ResponseEntity<>(transactionList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{transactionId}")
-    public ResponseEntity<Transaction> updateTransaction(@PathVariable UUID transactionId, @RequestBody TransactionDTO transactionDTO){
-        Transaction updatedTransaction = transactionService.updateTransaction(transactionId, transactionDTO);
+    public ResponseEntity<TransactionDTO> updateTransaction(@PathVariable UUID transactionId, @RequestBody TransactionDTO transactionDTO){
+        TransactionDTO updatedTransaction = transactionService.updateTransaction(transactionId, transactionDTO);
         return new ResponseEntity<>(updatedTransaction, HttpStatus.ACCEPTED);
     }
 

@@ -19,8 +19,8 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionMapper transactionMapper;
 
     @Override
-    public Transaction createTransaction(Transaction transaction){
-        return transactionRepository.save(transaction);
+    public TransactionDTO createTransaction(Transaction transaction){
+        return transactionMapper.toDto(transactionRepository.save(transaction));
     }
 
     @Override
@@ -30,15 +30,20 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<Transaction> getAllTransaction(){
-        return transactionRepository.findAll();
+    public TransactionDTO getDtoById(UUID transactionId){
+        return transactionMapper.toDto(getById(transactionId));
     }
 
     @Override
-    public Transaction updateTransaction(UUID transactionId, TransactionDTO transactionDTO){
+    public List<TransactionDTO> getAllTransaction(){
+        return transactionMapper.listToDto(transactionRepository.findAll());
+    }
+
+    @Override
+    public TransactionDTO updateTransaction(UUID transactionId, TransactionDTO transactionDTO){
         Transaction existingTransaction = getById(transactionId);
         transactionMapper.updateTransactionFromDTO(transactionDTO, existingTransaction);
-        return transactionRepository.save(existingTransaction);
+        return transactionMapper.toDto(transactionRepository.save(existingTransaction));
     }
 
     @Override

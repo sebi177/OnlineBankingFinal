@@ -19,8 +19,13 @@ public class CardServiceImpl implements CardService {
     private final CardMapper cardMapper;
 
     @Override
-    public Card createCard(Card card){
-        return cardRepository.save(card);
+    public CardDTO createCard(Card card){
+        return cardMapper.toDto(cardRepository.save(card));
+    }
+
+    @Override
+    public CardDTO getDtoById(UUID cardId){
+        return cardMapper.toDto(getById(cardId));
     }
 
     @Override
@@ -30,15 +35,15 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public List<Card> getAllCards(){
-        return cardRepository.findAll();
+    public List<CardDTO> getAllCards(){
+        return cardMapper.listToDto(cardRepository.findAll());
     }
 
     @Override
-    public Card updateCard(UUID cardId, CardDTO cardDTO){
+    public CardDTO updateCard(UUID cardId, CardDTO cardDTO){
         Card existingCard = getById(cardId);
         cardMapper.updateCardFromDTO(cardDTO, existingCard);
-        return cardRepository.save(existingCard);
+        return cardMapper.toDto(cardRepository.save(existingCard));
     }
 
     @Override

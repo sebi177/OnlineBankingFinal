@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.UUID;
 
 public interface TransactionService {
-    Transaction createTransaction(Transaction transaction);
+    TransactionDTO createTransaction(Transaction transaction);
 
     Transaction getById(UUID transactionId);
 
-    List<Transaction> getAllTransaction();
+    TransactionDTO getDtoById(UUID transactionId);
 
-    Transaction updateTransaction(UUID transactionId, TransactionDTO transactionDTO);
+    List<TransactionDTO> getAllTransaction();
+
+    TransactionDTO updateTransaction(UUID transactionId, TransactionDTO transactionDTO);
 
     void deleteTransaction(UUID transactionId);
 }

@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ManagerService {
-    Manager createManager(Manager manager);
+    ManagerDTO createManager(Manager manager);
 
     Manager getById(UUID managerId);
 
-    List<Manager> getAllManagers();
+    ManagerDTO getDtoById(UUID managerId);
 
-    Manager updateManager(UUID managerId, ManagerDTO managerDTO);
+    List<ManagerDTO> getAllManagers();
+
+    ManagerDTO updateManager(UUID managerId, ManagerDTO managerDTO);
 
     void deleteManager(UUID managerId);
 }

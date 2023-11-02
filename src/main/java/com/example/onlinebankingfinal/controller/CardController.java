@@ -18,26 +18,26 @@ public class CardController {
     private final CardService cardService;
 
     @PostMapping("/create")
-    public ResponseEntity<Card> createCard(@RequestBody Card card) {
-        Card createdCard = cardService.createCard(card);
+    public ResponseEntity<CardDTO> createCard(@RequestBody Card card) {
+        CardDTO createdCard = cardService.createCard(card);
         return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{cardId}")
-    public ResponseEntity<Card> getCardById(@PathVariable UUID cardId) {
-        Card foundedCard = cardService.getById(cardId);
+    public ResponseEntity<CardDTO> getCardById(@PathVariable UUID cardId) {
+        CardDTO foundedCard = cardService.getDtoById(cardId);
         return new ResponseEntity<>(foundedCard, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Card>> getAllCards(){
-        List<Card> cardsList = cardService.getAllCards();
+    public ResponseEntity<List<CardDTO>> getAllCards(){
+        List<CardDTO> cardsList = cardService.getAllCards();
         return new ResponseEntity<>(cardsList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{cardId}")
-    public ResponseEntity<Card> updateCard(@PathVariable UUID cardId, @RequestBody CardDTO cardDTO){
-        Card updatedCard = cardService.updateCard(cardId, cardDTO);
+    public ResponseEntity<CardDTO> updateCard(@PathVariable UUID cardId, @RequestBody CardDTO cardDTO){
+        CardDTO updatedCard = cardService.updateCard(cardId, cardDTO);
         return new ResponseEntity<>(updatedCard, HttpStatus.ACCEPTED);
     }
 

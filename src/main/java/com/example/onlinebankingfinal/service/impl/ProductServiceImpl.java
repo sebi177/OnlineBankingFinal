@@ -19,8 +19,8 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper productMapper;
 
     @Override
-    public Product createProduct(Product product){
-        return productRepository.save(product);
+    public ProductDTO createProduct(Product product){
+        return productMapper.toDto(productRepository.save(product));
     }
 
     @Override
@@ -30,15 +30,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProducts(){
-        return productRepository.findAll();
+    public ProductDTO getDtoById(UUID productId){
+        return productMapper.toDto(getById(productId));
     }
 
     @Override
-    public Product updateProduct(UUID productId, ProductDTO productDTO){
+    public List<ProductDTO> getAllProducts(){
+        return productMapper.listToDto(productRepository.findAll());
+    }
+
+    @Override
+    public ProductDTO updateProduct(UUID productId, ProductDTO productDTO){
         Product existingProduct = getById(productId);
         productMapper.updateProductFromDTO(productDTO, existingProduct);
-        return productRepository.save(existingProduct);
+        return productMapper.toDto(productRepository.save(existingProduct));
     }
 
     @Override

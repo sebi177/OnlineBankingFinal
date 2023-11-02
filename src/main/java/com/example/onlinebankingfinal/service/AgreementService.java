@@ -7,13 +7,16 @@ import java.util.List;
 import java.util.UUID;
 
 public interface AgreementService {
-    Agreement createAgreement(Agreement agreement);
+
+    AgreementDTO createAgreement(Agreement agreement);
+
+    AgreementDTO getDtoById(UUID agreementId);
 
     Agreement getById(UUID agreementId);
 
-    List<Agreement> getAllAgreements();
+    List<AgreementDTO> getAllAgreements();
 
-    Agreement updateAgreement(UUID agreementId, AgreementDTO agreementDTO);
+    AgreementDTO updateAgreement(UUID agreementId, AgreementDTO agreementDTO);
 
     void deleteAgreement(UUID agreementId);
 }

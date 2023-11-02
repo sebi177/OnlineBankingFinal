@@ -19,8 +19,8 @@ public class ManagerServiceImpl implements ManagerService {
     private final ManagerMapper managerMapper;
 
     @Override
-    public Manager createManager(Manager manager){
-        return managerRepository.save(manager);
+    public ManagerDTO createManager(Manager manager){
+        return managerMapper.toDto(managerRepository.save(manager));
     }
 
     @Override
@@ -30,15 +30,20 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public List<Manager> getAllManagers(){
-        return managerRepository.findAll();
+    public ManagerDTO getDtoById(UUID managerId){
+        return managerMapper.toDto(getById(managerId));
     }
 
     @Override
-    public Manager updateManager(UUID managerId, ManagerDTO managerDTO){
+    public List<ManagerDTO> getAllManagers(){
+        return managerMapper.listToDto(managerRepository.findAll());
+    }
+
+    @Override
+    public ManagerDTO updateManager(UUID managerId, ManagerDTO managerDTO){
         Manager existingManager = getById(managerId);
         managerMapper.updateManagerFromDto(managerDTO, existingManager);
-        return managerRepository.save(existingManager);
+        return managerMapper.toDto(managerRepository.save(existingManager));
     }
 
     @Override

@@ -19,8 +19,13 @@ public class AgreementServiceImpl implements AgreementService {
     private final AgreementMapper agreementMapper;
 
     @Override
-    public Agreement createAgreement(Agreement agreement) {
-        return agreementRepository.save(agreement);
+    public AgreementDTO createAgreement(Agreement agreement) {
+        return agreementMapper.toDto(agreementRepository.save(agreement));
+    }
+
+    @Override
+    public AgreementDTO getDtoById(UUID agreementId) {
+        return agreementMapper.toDto(getById(agreementId));
     }
 
     @Override
@@ -30,15 +35,15 @@ public class AgreementServiceImpl implements AgreementService {
     }
 
     @Override
-    public List<Agreement> getAllAgreements() {
-        return agreementRepository.findAll();
+    public List<AgreementDTO> getAllAgreements() {
+        return agreementMapper.listToDto(agreementRepository.findAll());
     }
 
     @Override
-    public Agreement updateAgreement(UUID agreementId, AgreementDTO agreementDTO){
+    public AgreementDTO updateAgreement(UUID agreementId, AgreementDTO agreementDTO){
         Agreement existingAgreement = getById(agreementId);
         agreementMapper.updateAgreementFromDTO(agreementDTO, existingAgreement);
-        return agreementRepository.save(existingAgreement);
+        return agreementMapper.toDto(agreementRepository.save(existingAgreement));
     }
 
     @Override

@@ -19,8 +19,8 @@ public class ClientServiceImpl implements ClientService {
     private final ClientMapper clientMapper;
 
     @Override
-    public Client createClient(Client client){
-        return clientRepository.save(client);
+    public ClientDTO createClient(Client client){
+        return clientMapper.toDto(clientRepository.save(client));
     }
 
     @Override
@@ -30,15 +30,20 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> getAllClients(){
-        return clientRepository.findAll();
+    public ClientDTO getDtoById(UUID clientId){
+        return clientMapper.toDto(getById(clientId));
     }
 
     @Override
-    public Client updateClient(UUID clientId, ClientDTO clientDTO){
+    public List<ClientDTO> getAllClients(){
+        return clientMapper.listToDto(clientRepository.findAll());
+    }
+
+    @Override
+    public ClientDTO updateClient(UUID clientId, ClientDTO clientDTO){
         Client existingClient = getById(clientId);
         clientMapper.updateClientFromDTO(clientDTO, existingClient);
-        return clientRepository.save(existingClient);
+        return clientMapper.toDto(clientRepository.save(existingClient));
     }
 
     @Override

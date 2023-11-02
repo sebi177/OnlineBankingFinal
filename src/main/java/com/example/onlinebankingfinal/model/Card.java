@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -35,15 +35,16 @@ public class Card {
     @Column(name = "cvv")
     private Integer cvv;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "expiration_date")
-    private Timestamp expirationDate;
+    private LocalDateTime expirationDate;
 
     @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", updatable = false)
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account_id", referencedColumnName = "account_id")
+    @OneToOne(mappedBy = "card", fetch = FetchType.EAGER)
     private Account account;
 
     @ManyToOne(fetch = FetchType.EAGER)

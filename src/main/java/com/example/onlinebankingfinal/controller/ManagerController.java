@@ -18,26 +18,26 @@ public class ManagerController {
     private final ManagerService managerService;
 
     @PostMapping("/create")
-    public ResponseEntity<Manager> createManager(@RequestBody Manager manager) {
-        Manager createdManager = managerService.createManager(manager);
+    public ResponseEntity<ManagerDTO> createManager(@RequestBody Manager manager) {
+        ManagerDTO createdManager = managerService.createManager(manager);
         return new ResponseEntity<>(createdManager, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{managerId}")
-    public ResponseEntity<Manager> getManagerById(@PathVariable UUID managerId) {
-        Manager foundedManager = managerService.getById(managerId);
+    public ResponseEntity<ManagerDTO> getManagerById(@PathVariable UUID managerId) {
+        ManagerDTO foundedManager = managerService.getDtoById(managerId);
         return new ResponseEntity<>(foundedManager, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Manager>> getAllManagers(){
-        List<Manager> managerList = managerService.getAllManagers();
+    public ResponseEntity<List<ManagerDTO>> getAllManagers(){
+        List<ManagerDTO> managerList = managerService.getAllManagers();
         return new ResponseEntity<>(managerList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{managerId}")
-    public ResponseEntity<Manager> updateManager(@PathVariable UUID managerId, @RequestBody ManagerDTO managerDTO){
-        Manager updatedManager = managerService.updateManager(managerId, managerDTO);
+    public ResponseEntity<ManagerDTO> updateManager(@PathVariable UUID managerId, @RequestBody ManagerDTO managerDTO){
+        ManagerDTO updatedManager = managerService.updateManager(managerId, managerDTO);
         return new ResponseEntity<>(updatedManager, HttpStatus.ACCEPTED);
     }
 

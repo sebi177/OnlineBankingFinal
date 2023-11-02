@@ -18,26 +18,26 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/create")
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        Product createdProduct = productService.createProduct(product);
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody Product product) {
+        ProductDTO createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{productId}")
-    public ResponseEntity<Product> getProductById(@PathVariable UUID productId) {
-        Product foundedManager = productService.getById(productId);
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable UUID productId) {
+        ProductDTO foundedManager = productService.getDtoById(productId);
         return new ResponseEntity<>(foundedManager, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Product>> getAllProducts(){
-        List<Product> productList = productService.getAllProducts();
+    public ResponseEntity<List<ProductDTO>> getAllProducts(){
+        List<ProductDTO> productList = productService.getAllProducts();
         return new ResponseEntity<>(productList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{productId}")
-    public ResponseEntity<Product> updateProduct(@PathVariable UUID productId, @RequestBody ProductDTO productDTO){
-        Product updatedProduct = productService.updateProduct(productId, productDTO);
+    public ResponseEntity<ProductDTO> updateProduct(@PathVariable UUID productId, @RequestBody ProductDTO productDTO){
+        ProductDTO updatedProduct = productService.updateProduct(productId, productDTO);
         return new ResponseEntity<>(updatedProduct, HttpStatus.ACCEPTED);
     }
 

@@ -28,11 +28,23 @@ public class AccountControllerTest {
         assertEquals(expectedAccount, currentAccount);
     }
 
-//    @Test
-//    void createAccount(){
-//        AccountDTO currentAccount = new AccountDTO();
-//        currentAccount.s
-//    }
+    @Test
+    void createAccount(){
+        AccountDTO currentAccount = new AccountDTO();
+        currentAccount.setAccountName("Dream car");
+        currentAccount.setAccountType("CURRENT");
+        currentAccount.setAccountStatus("ACTIVE");
+        currentAccount.setAccountBalance("12345.67");
+        currentAccount.setAccountCurrencyCode("USD");
+
+        AccountDTO expectedAccount = new AccountDTO();
+        expectedAccount.setAccountName(currentAccount.getAccountName());
+        expectedAccount.setAccountType(currentAccount.getAccountType());
+        expectedAccount.setAccountStatus(currentAccount.getAccountStatus());
+        expectedAccount.setAccountBalance(currentAccount.getAccountBalance());
+        expectedAccount.setAccountCurrencyCode(currentAccount.getAccountCurrencyCode());
+        assertEquals(expectedAccount, currentAccount);
+    }
 //    {
 //        "accountId": "813d8452-4ec1-461b-bbc0-e9fcac792f31",
 //            "accountName": "Porsche for my Wife",

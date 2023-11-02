@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CardService {
-    Card createCard(Card card);
+    CardDTO createCard(Card card);
+
+    CardDTO getDtoById(UUID cardId);
 
     Card getById(UUID cardId);
 
-    List<Card> getAllCards();
+    List<CardDTO> getAllCards();
 
-    Card updateCard(UUID cardId, CardDTO cardDTO);
+    CardDTO updateCard(UUID cardId, CardDTO cardDTO);
 
     void deleteCard(UUID cardId);
 }

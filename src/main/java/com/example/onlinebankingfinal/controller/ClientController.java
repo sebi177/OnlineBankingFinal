@@ -18,26 +18,26 @@ public class ClientController {
     private final ClientService clientService;
 
     @PostMapping("/create")
-    public ResponseEntity<Client> createClient(@RequestBody Client client) {
-        Client createdCard = clientService.createClient(client);
+    public ResponseEntity<ClientDTO> createClient(@RequestBody Client client) {
+        ClientDTO createdCard = clientService.createClient(client);
         return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
     }
 
     @GetMapping("/find/{clientId}")
-    public ResponseEntity<Client> getClientById(@PathVariable UUID clientId) {
-        Client foundedClient = clientService.getById(clientId);
+    public ResponseEntity<ClientDTO> getClientById(@PathVariable UUID clientId) {
+        ClientDTO foundedClient = clientService.getDtoById(clientId);
         return new ResponseEntity<>(foundedClient, HttpStatus.FOUND);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Client>> getAllClients(){
-        List<Client> clientList = clientService.getAllClients();
+    public ResponseEntity<List<ClientDTO>> getAllClients(){
+        List<ClientDTO> clientList = clientService.getAllClients();
         return new ResponseEntity<>(clientList, HttpStatus.FOUND);
     }
 
     @PostMapping("/update/{clientId}")
-    public ResponseEntity<Client> updateClient(@PathVariable UUID clientId, @RequestBody ClientDTO clientDTO){
-        Client updatedClient = clientService.updateClient(clientId, clientDTO);
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable UUID clientId, @RequestBody ClientDTO clientDTO){
+        ClientDTO updatedClient = clientService.updateClient(clientId, clientDTO);
         return new ResponseEntity<>(updatedClient, HttpStatus.ACCEPTED);
     }
 

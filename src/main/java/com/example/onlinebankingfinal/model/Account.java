@@ -11,9 +11,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -48,18 +47,21 @@ public class Account {
     private CurrencyCode accountCurrencyCode;
 
     @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", updatable = false)
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at")
-    private Timestamp updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private Client client;
 
-    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "card_id", referencedColumnName = "card_id")
     private Card card;
 
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
@@ -71,36 +73,6 @@ public class Account {
     @OneToMany(mappedBy = "creditAccount", fetch = FetchType.EAGER)
     private Set<Transaction> creditTransaction;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Account account)) return false;
-        return Objects.equals(getAccountId(), account.getAccountId()) && Objects.equals(getClient(), account.getClient());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getAccountId(), getClient());
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accountId=" + accountId +
-                ", accountName='" + accountName + '\'' +
-                ", accountType=" + accountType +
-                ", accountStatus=" + accountStatus +
-                ", accountBalance=" + accountBalance +
-                ", accountCurrencyCode=" + accountCurrencyCode +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", client=" + client +
-                ", card=" + card +
-                ", agreementList=" + agreementList +
-                ", debitTransaction=" + debitTransaction +
-                ", creditTransaction=" + creditTransaction +
-                '}';
-    }
 }
 
 

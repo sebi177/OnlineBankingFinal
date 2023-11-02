@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ProductService {
-    Product createProduct(Product product);
+    ProductDTO createProduct(Product product);
 
     Product getById(UUID productId);
 
-    List<Product> getAllProducts();
+    ProductDTO getDtoById(UUID productId);
 
-    Product updateProduct(UUID productId, ProductDTO productDTO);
+    List<ProductDTO> getAllProducts();
+
+    ProductDTO updateProduct(UUID productId, ProductDTO productDTO);
 
     void deleteProduct(UUID productId);
 }
