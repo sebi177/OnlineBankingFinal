@@ -3,6 +3,7 @@ package com.example.onlinebankingfinal.service.impl;
 import com.example.onlinebankingfinal.dto.AccountDTO;
 import com.example.onlinebankingfinal.mapper.AccountMapper;
 import com.example.onlinebankingfinal.model.Account;
+import com.example.onlinebankingfinal.model.Client;
 import com.example.onlinebankingfinal.repository.AccountRepository;
 import com.example.onlinebankingfinal.service.AccountService;
 import jakarta.persistence.EntityNotFoundException;
@@ -52,4 +53,5 @@ public class AccountServiceImpl implements AccountService {
                 .orElseThrow(() -> new EntityNotFoundException("Account not found!"));
         accountRepository.delete(existingAccount);
     }
+
 }

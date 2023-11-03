@@ -1,8 +1,10 @@
 package com.example.onlinebankingfinal.mapper;
 
 import com.example.onlinebankingfinal.dto.ProductDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.model.Product;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -18,4 +20,16 @@ public interface ProductMapper {
     ProductDTO toDto(Product product);
 
     List<ProductDTO> listToDto(List<Product> productList);
+
+    @Mapping(source = "manager",target = "manager.managerId")
+    void updateProduct(ProductFullDTO productDTO, @MappingTarget Product product);
+
+    @Mapping(source = "manager",target = "manager.managerId")
+    Product toProduct(ProductFullDTO productDTO);
+
+    @Mapping(source = "manager.managerId",target = "manager")
+    ProductFullDTO toFullDto(Product product);
+
+    @Mapping(source = "manager.managerId",target = "manager")
+    List<ProductFullDTO> listToFullDto(List<Product> productList);
 }

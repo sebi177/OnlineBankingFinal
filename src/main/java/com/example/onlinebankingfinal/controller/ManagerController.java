@@ -1,7 +1,9 @@
 package com.example.onlinebankingfinal.controller;
 
+import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.dto.ManagerDTO;
 import com.example.onlinebankingfinal.model.Manager;
+import com.example.onlinebankingfinal.service.ClientService;
 import com.example.onlinebankingfinal.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @RequestMapping("/manager")
 public class ManagerController {
     private final ManagerService managerService;
+    private final ClientService clientService;
 
     @PostMapping("/create")
     public ResponseEntity<ManagerDTO> createManager(@RequestBody Manager manager) {
@@ -45,4 +48,5 @@ public class ManagerController {
     public void deleteManager(@PathVariable UUID managerId){
         managerService.deleteManager(managerId);
     }
+
 }

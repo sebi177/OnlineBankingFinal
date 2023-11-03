@@ -15,28 +15,18 @@ databaseChangeLog:
               - column:
                   name: account_name
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: account_type
                   type: VARCHAR(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: account_status
                   type: VARCHAR(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: account_balance
                   type: DECIMAL(15,2)
-                  constraints:
-                    nullable: false
               - column:
                   name: account_currency_code
                   type: VARCHAR(3)
-                  constraints:
-                    nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -69,18 +59,12 @@ databaseChangeLog:
               - column:
                   name: interest_rate
                   type: DECIMAL(3,2)
-                  constraints:
-                    nullable: false
               - column:
                   name: agreement_status
                   type: VARCHAR(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: agreement_sum
                   type: DECIMAL(16,2)
-                  constraints:
-                    nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -113,23 +97,15 @@ databaseChangeLog:
               - column:
                   name: card_type
                   type: VARCHAR(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: card_number
                   type: VARCHAR(16)
-                  constraints:
-                    nullable: false
               - column:
                   name: card_holder
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: cvv
                   type: VARCHAR(3)
-                  constraints:
-                    nullable: false
               - column:
                   name: expiration_date
                   type: TIMESTAMP
@@ -161,37 +137,25 @@ databaseChangeLog:
                   name: client_status
                   type: VARCHAR(50)
                   constraints:
-                    nullable: false
               - column:
                   name: tax_code
                   type: VARCHAR(20)
                   constraints:
-                    nullable: false
               - column:
                   name: first_name
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: last_name
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: email
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: address
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: phone
                   type: VARCHAR(20)
-                  constraints:
-                    nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -200,6 +164,8 @@ databaseChangeLog:
               - column:
                   name: updated_at
                   type: TIMESTAMP
+                  constraints:
+                    nullable: false
               - column:
                   name: manager_id
                   type: BINARY(16)
@@ -257,28 +223,18 @@ databaseChangeLog:
               - column:
                   name: product_name
                   type: VARCHAR(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: product_status
                   type: VARCHAR(50)
-                  constraints:
-                    nullable: false
               - column:
                   name: product_currency_code
                   type: VARCHAR(3)
-                  constraints:
-                    nullable: false
               - column:
                   name: interest_rate
                   type: DECIMAL(3,2)
-                  constraints:
-                    nullable: false
               - column:
                   name: product_limit
                   type: DECIMAL(16,0)
-                  constraints:
-                    nullable: false
               - column:
                   name: created_at
                   type: TIMESTAMP

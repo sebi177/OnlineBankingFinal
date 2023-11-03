@@ -16,8 +16,8 @@ public class AccountControllerTest {
     AccountService accountService;
 
     @Test
-    void getAccountById(){
-        AccountDTO currentAccount = accountService.getDtoById(UUID.fromString("813d8452-4ec1-461b-bbc0-e9fcac792f31"));
+    void getAccountDtoById(){
+        AccountDTO currentAccount = accountService.getDtoById(UUID.fromString("ad1c1db1-9bc1-4151-9d62-b81bc5092654"));
 
         AccountDTO expectedAccount = new AccountDTO();
         expectedAccount.setAccountName("Porsche for my Wife");
@@ -45,6 +45,10 @@ public class AccountControllerTest {
         expectedAccount.setAccountCurrencyCode(currentAccount.getAccountCurrencyCode());
         assertEquals(expectedAccount, currentAccount);
     }
+
+
+
+
 //    {
 //        "accountId": "813d8452-4ec1-461b-bbc0-e9fcac792f31",
 //            "accountName": "Porsche for my Wife",

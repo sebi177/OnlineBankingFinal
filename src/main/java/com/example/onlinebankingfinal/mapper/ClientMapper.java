@@ -1,8 +1,10 @@
 package com.example.onlinebankingfinal.mapper;
 
 import com.example.onlinebankingfinal.dto.ClientDTO;
+import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.model.Client;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -18,4 +20,16 @@ public interface ClientMapper {
     ClientDTO toDto(Client client);
 
     List<ClientDTO> listToDto(List<Client> clientList);
+
+    @Mapping(source = "manager",target = "manager.managerId")
+    void updateClient(ClientFullDTO clientDTO, @MappingTarget Client client);
+
+    @Mapping(source = "manager",target = "manager.managerId")
+    Client toClient(ClientFullDTO clientDTO);
+
+    @Mapping(source = "manager.managerId",target = "manager")
+    ClientFullDTO toFullDto(Client client);
+
+    @Mapping(source = "manager.managerId",target = "manager")
+    List<ClientFullDTO> listToFullDto(List<Client> clientList);
 }
