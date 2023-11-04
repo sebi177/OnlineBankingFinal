@@ -11,6 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -49,7 +50,7 @@ public class Account {
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -60,9 +61,9 @@ public class Account {
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private Client client;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "card_id", referencedColumnName = "card_id")
-    private Card card;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "card_id", referencedColumnName = "card_id")
+//    private Card card;
 
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     private List<Agreement> agreementList;

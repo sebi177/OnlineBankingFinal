@@ -40,9 +40,6 @@ databaseChangeLog:
               - column:
                   name: client_id
                   type: BINARY(16)
-              - column:
-                  name: card_id
-                  type: BINARY(16)
 
   - changeSet:
       id: createTableAgreement

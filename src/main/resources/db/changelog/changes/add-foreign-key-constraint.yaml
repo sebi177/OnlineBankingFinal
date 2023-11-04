@@ -11,17 +11,6 @@ databaseChangeLog:
             constraintName: FK_accounts_clients
 
   - changeSet:
-      id: addForeignKeyToAccountCard
-      author: admin
-      changes:
-        - addForeignKeyConstraint:
-            baseTableName: accounts
-            baseColumnNames: card_id
-            referencedTableName: cards
-            referencedColumnNames: card_id
-            constraintName: FK_accounts_cards
-
-  - changeSet:
       id: addForeignKeyToAgreementProduct
       author: admin
       changes:

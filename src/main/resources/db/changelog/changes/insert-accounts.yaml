@@ -1,0 +1,1400 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-account1
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('3ec8670a-5599-4d22-b876-a0ace79a93cc')"
+              - column:
+                  name: account_name
+                  value: 'Cont1'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '5243.77'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"
+
+  - changeSet:
+      id: insert-account2
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('40a86f29-7799-4c62-b3f6-a0ace79a93cc')"
+              - column:
+                  name: account_name
+                  value: 'Cont2'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '1289.54'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-09-19 11:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-20 13:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"
+
+  - changeSet:
+      id: insert-account3
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('5dc67f0e-9f99-3d26-c5b6-a0ace79a93cc')"
+              - column:
+                  name: account_name
+                  value: 'Cont3'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '9763.22'
+              - column:
+                  name: account_currency_code
+                  value: 'CAD'
+              - column:
+                  name: created_at
+                  value: '2023-09-20 09:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-21 14:20:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('46998f8e-e9aa-43c7-af48-eb296edfcabb')"
+
+  - changeSet:
+      id: insert-account4
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('60a27da0-0ea0-4a25-81f4-c2ace74c93aa')"
+              - column:
+                  name: account_name
+                  value: 'Cont4'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'PENDING'
+              - column:
+                  name: account_balance
+                  value: '325.12'
+              - column:
+                  name: account_currency_code
+                  value: 'JPY'
+              - column:
+                  name: created_at
+                  value: '2023-09-21 08:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-22 12:10:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('46998f8e-e9aa-43c7-af48-eb296edfcabb')"
+
+  - changeSet:
+      id: insert-account5
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('a4e6177d-4b49-4a69-95df-d1acb1c19c4a')"
+              - column:
+                  name: account_name
+                  value: 'Cont5'
+              - column:
+                  name: account_type
+                  value: 'CHILDREN'
+              - column:
+                  name: account_status
+                  value: 'CLOSED'
+              - column:
+                  name: account_balance
+                  value: '7124.89'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-09-22 07:20:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-23 11:30:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('46998f8e-e9aa-43c7-af48-eb296edfcabb')"
+
+  - changeSet:
+      id: insert-account6
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('0ca4f4f1-0a7b-482e-94c0-29ce3a48086f')"
+              - column:
+                  name: account_name
+                  value: 'Cont6'
+              - column:
+                  name: account_type
+                  value: 'RETIREMENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '32567.34'
+              - column:
+                  name: account_currency_code
+                  value: 'CNY'
+              - column:
+                  name: created_at
+                  value: '2023-09-24 15:10:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-25 09:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('61cc2aad-bedf-4273-b047-4a2d340b4a46')"
+
+  - changeSet:
+      id: insert-account7
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('57e54b72-76b5-4f7d-b23c-8f5823efcc49')"
+              - column:
+                  name: account_name
+                  value: 'Cont7'
+              - column:
+                  name: account_type
+                  value: 'BUSINESS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '18245.67'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-09-26 11:20:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-27 14:35:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('8d06769b-c413-407b-872e-22982418391c')"
+
+  - changeSet:
+      id: insert-account8
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('6aef29b9-6411-487e-88ca-14d159ed4dc4')"
+              - column:
+                  name: account_name
+                  value: 'Cont8'
+              - column:
+                  name: account_type
+                  value: 'SPECIALTY'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '13432.89'
+              - column:
+                  name: account_currency_code
+                  value: 'CAD'
+              - column:
+                  name: created_at
+                  value: '2023-09-28 09:55:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-29 13:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('8d06769b-c413-407b-872e-22982418391c')"
+
+  - changeSet:
+      id: insert-account9
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('6eac92c5-32da-4c5f-8cc1-92db3fbb1a2e')"
+              - column:
+                  name: account_name
+                  value: 'Cont9'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '8753.24'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-09-30 10:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-01 09:25:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('70a9f7fb-5ea0-4821-adf5-54fae40dd06e')"
+
+  - changeSet:
+      id: insert-account10
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('0a186ca2-9f68-4317-92b4-6c1bde17e7b4')"
+              - column:
+                  name: account_name
+                  value: 'Cont10'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'BLOCKED'
+              - column:
+                  name: account_balance
+                  value: '1234.56'
+              - column:
+                  name: account_currency_code
+                  value: 'JPY'
+              - column:
+                  name: created_at
+                  value: '2023-10-02 12:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-03 10:55:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('ff7615dc-7398-4ba4-86d9-a7bca1fd72b6')"
+
+  - changeSet:
+      id: insert-account11
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('b6a852e9-117d-48d0-9d47-6d5e94f01b1e')"
+              - column:
+                  name: account_name
+                  value: 'Cont11'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '38762.93'
+              - column:
+                  name: account_currency_code
+                  value: 'CNY'
+              - column:
+                  name: created_at
+                  value: '2023-10-04 14:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-05 09:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('ff7615dc-7398-4ba4-86d9-a7bca1fd72b6')"
+
+  - changeSet:
+      id: insert-account12
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('ee93ed7d-7e97-4d49-84e2-5bfc9c5549c7')"
+              - column:
+                  name: account_name
+                  value: 'Cont12'
+              - column:
+                  name: account_type
+                  value: 'CHILDREN'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '4235.21'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-10-06 16:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-07 12:10:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('ff7615dc-7398-4ba4-86d9-a7bca1fd72b6')"
+
+  - changeSet:
+      id: insert-account13
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('28a07564-53f7-4ab5-8e90-25ccfe1c725f')"
+              - column:
+                  name: account_name
+                  value: 'Cont13'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'PENDING'
+              - column:
+                  name: account_balance
+                  value: '655.79'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-10-08 13:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-09 11:30:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('25055baa-5016-49d9-a383-fb9e8363ccd3')"
+
+  - changeSet:
+      id: insert-account14
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('db929a8d-4c23-4f89-850d-152e30e59b17')"
+              - column:
+                  name: account_name
+                  value: 'Cont14'
+              - column:
+                  name: account_type
+                  value: 'BUSINESS'
+              - column:
+                  name: account_status
+                  value: 'SUSPENDED'
+              - column:
+                  name: account_balance
+                  value: '8746.50'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-10-10 18:20:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-11 15:55:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('25055baa-5016-49d9-a383-fb9e8363ccd3')"
+
+  - changeSet:
+      id: insert-account15
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('bd44a6f5-7e5e-4dcd-8f94-2a12b4417751')"
+              - column:
+                  name: account_name
+                  value: 'Cont15'
+              - column:
+                  name: account_type
+                  value: 'RETIREMENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '25833.36'
+              - column:
+                  name: account_currency_code
+                  value: 'CAD'
+              - column:
+                  name: created_at
+                  value: '2023-10-12 20:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-13 17:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+
+  - changeSet:
+      id: insert-account16
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('d418c7f3-8894-4524-b08a-42b751db70ce')"
+              - column:
+                  name: account_name
+                  value: 'Cont16'
+              - column:
+                  name: account_type
+                  value: 'SPECIALTY'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '3947.19'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-10-14 22:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-15 19:40:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+
+  - changeSet:
+      id: insert-account17
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('d0a0e356-3e5c-4f17-b3db-d4633a2dfe15')"
+              - column:
+                  name: account_name
+                  value: 'Cont17'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '562.38'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-10-16 08:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-17 14:20:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+
+  - changeSet:
+      id: insert-account18
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('8a3dd50c-0a98-47a0-94b3-2b84e6d8cb5d')"
+              - column:
+                  name: account_name
+                  value: 'Cont18'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '78821.24'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-10-18 11:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-19 17:55:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('f0d88142-bb0c-4f5c-bcbb-7613864c941a')"
+
+  - changeSet:
+      id: insert-account19
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('39432c52-b63d-4f3b-9f39-8e46e52a41cb')"
+              - column:
+                  name: account_name
+                  value: 'Cont19'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'BLOCKED'
+              - column:
+                  name: account_balance
+                  value: '4563.74'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-10-20 14:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-21 09:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('f0d88142-bb0c-4f5c-bcbb-7613864c941a')"
+
+  - changeSet:
+      id: insert-account20
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('f7b3d6f5-7e68-42cd-a8f5-3a8b5a01f76e')"
+              - column:
+                  name: account_name
+                  value: 'Cont20'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '12345.67'
+              - column:
+                  name: account_currency_code
+                  value: 'JPY'
+              - column:
+                  name: created_at
+                  value: '2023-10-22 17:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-23 13:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+
+  - changeSet:
+      id: insert-account21
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('bf47b8db-1ae7-4569-aab7-4f49c5876ca6')"
+              - column:
+                  name: account_name
+                  value: 'Cont21'
+              - column:
+                  name: account_type
+                  value: 'RETIREMENT'
+              - column:
+                  name: account_status
+                  value: 'BLOCKED'
+              - column:
+                  name: account_balance
+                  value: '9867.89'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-10-24 20:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-25 18:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+
+  - changeSet:
+      id: insert-account22
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('3e8a3e8e-6100-4b11-bd88-1d5b27ea67b9')"
+              - column:
+                  name: account_name
+                  value: 'Cont22'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '4659.32'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-10-26 10:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-27 14:40:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+
+  - changeSet:
+      id: insert-account23
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('ce20638f-1391-4512-90c7-60d8e9519857')"
+              - column:
+                  name: account_name
+                  value: 'Cont23'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '98761.23'
+              - column:
+                  name: account_currency_code
+                  value: 'CAD'
+              - column:
+                  name: created_at
+                  value: '2023-10-28 09:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-29 11:25:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5c9a23f8-0975-4641-ad10-c7fc233e799b')"
+
+  - changeSet:
+      id: insert-account24
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('19e4c28d-ef5f-4f3f-bd16-82a0e1bc6e84')"
+              - column:
+                  name: account_name
+                  value: 'Cont24'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '1422.57'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-10-30 12:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-31 17:50:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5c9a23f8-0975-4641-ad10-c7fc233e799b')"
+
+  - changeSet:
+      id: insert-account25
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('47cb2b97-5ca9-4e5f-9ab1-6c284b79a13a')"
+              - column:
+                  name: account_name
+                  value: 'Cont25'
+              - column:
+                  name: account_type
+                  value: 'CHILDREN'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '1245.00'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-11-01 14:20:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-02 18:30:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+
+  - changeSet:
+      id: insert-account26
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('90e3e9da-830b-4c60-9ae9-ea132e6aee15')"
+              - column:
+                  name: account_name
+                  value: 'Cont26'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '23898.75'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-11-03 10:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-04 15:20:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+
+  - changeSet:
+      id: insert-account27
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('8c4d2e1c-0c8a-4d1f-bd82-d672a862ea97')"
+              - column:
+                  name: account_name
+                  value: 'Cont27'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'BLOCKED'
+              - column:
+                  name: account_balance
+                  value: '6754.32'
+              - column:
+                  name: account_currency_code
+                  value: 'JPY'
+              - column:
+                  name: created_at
+                  value: '2023-11-05 12:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-06 16:40:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+
+  - changeSet:
+      id: insert-account28
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('db01a67e-8f47-49a9-97a2-5de1b072a949')"
+              - column:
+                  name: account_name
+                  value: 'Cont28'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '89000.00'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-11-07 09:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-08 14:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('e5b3a78e-8e4b-471d-9e6d-d70fd6f65590')"
+
+  - changeSet:
+      id: insert-account29
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('b1a6a475-5b41-4867-9ca6-16cfe769c197')"
+              - column:
+                  name: account_name
+                  value: 'Cont29'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'BLOCKED'
+              - column:
+                  name: account_balance
+                  value: '4892.34'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-11-09 13:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-10 17:55:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('e5b3a78e-8e4b-471d-9e6d-d70fd6f65590')"
+
+  - changeSet:
+      id: insert-account30
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('2799f2d6-05f0-4678-9e9d-c7a8946a0a64')"
+              - column:
+                  name: account_name
+                  value: 'Cont30'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '3234.78'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-11-11 11:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-12 15:10:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-account31
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('f88e6c24-971b-43d6-930f-10c0e41a6b24')"
+              - column:
+                  name: account_name
+                  value: 'Cont31'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '50000.55'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-11-13 09:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-14 14:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-account32
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('925aae4a-63f5-4c71-8905-2dcb33bb1249')"
+              - column:
+                  name: account_name
+                  value: 'Cont32'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '8943.78'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-11-15 10:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-16 15:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-account33
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('99f1e7cb-42a6-4b92-93d8-607b4c28e6a5')"
+              - column:
+                  name: account_name
+                  value: 'Cont33'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '24789.32'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-11-17 11:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-18 15:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-account34
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('04b1cb5d-14e6-4f7f-b93a-7b8d63c9f421')"
+              - column:
+                  name: account_name
+                  value: 'Cont34'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '1890.42'
+              - column:
+                  name: account_currency_code
+                  value: 'AUD'
+              - column:
+                  name: created_at
+                  value: '2023-11-19 12:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-20 16:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-account35
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('12c2ad76-623c-4c17-9d5f-623981e06c92')"
+              - column:
+                  name: account_name
+                  value: 'Cont35'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '73000.70'
+              - column:
+                  name: account_currency_code
+                  value: 'CAD'
+              - column:
+                  name: created_at
+                  value: '2023-11-21 09:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-22 14:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-account36
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('d4c76e62-925e-4c1f-8dd3-7b236ea91c8c')"
+              - column:
+                  name: account_name
+                  value: 'Cont36'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '4562.99'
+              - column:
+                  name: account_currency_code
+                  value: 'GBP'
+              - column:
+                  name: created_at
+                  value: '2023-11-23 10:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-24 15:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-account37
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('a4723e6b-7186-4f4f-9d3f-1a5082e3c9e9')"
+              - column:
+                  name: account_name
+                  value: 'Cont37'
+              - column:
+                  name: account_type
+                  value: 'MONEY_MARKET'
+              - column:
+                  name: account_status
+                  value: 'INACTIVE'
+              - column:
+                  name: account_balance
+                  value: '38764.88'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-11-25 11:15:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-26 15:45:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-account38
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('96b09ce5-2260-4a88-9e11-6b9a7c7f9d4c')"
+              - column:
+                  name: account_name
+                  value: 'Cont38'
+              - column:
+                  name: account_type
+                  value: 'SAVINGS'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '9325.27'
+              - column:
+                  name: account_currency_code
+                  value: 'EUR'
+              - column:
+                  name: created_at
+                  value: '2023-11-27 12:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-28 16:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-account39
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('04b1cb6e-524d-4e4a-9b48-4e6e38a2f6c5')"
+              - column:
+                  name: account_name
+                  value: 'Cont39'
+              - column:
+                  name: account_type
+                  value: 'CERTIFICATE_DEPOSIT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '64000.64'
+              - column:
+                  name: account_currency_code
+                  value: 'JPY'
+              - column:
+                  name: created_at
+                  value: '2023-11-29 09:45:00'
+              - column:
+                  name: updated_at
+                  value: '2023-11-30 14:15:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-account40
+      author: admin
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('fe6a125e-9c41-4b69-9d4f-8b2d2e3c9f7e')"
+              - column:
+                  name: account_name
+                  value: 'Cont40'
+              - column:
+                  name: account_type
+                  value: 'CURRENT'
+              - column:
+                  name: account_status
+                  value: 'ACTIVE'
+              - column:
+                  name: account_balance
+                  value: '5634.33'
+              - column:
+                  name: account_currency_code
+                  value: 'USD'
+              - column:
+                  name: created_at
+                  value: '2023-12-01 10:30:00'
+              - column:
+                  name: updated_at
+                  value: '2023-12-02 15:00:00'
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"

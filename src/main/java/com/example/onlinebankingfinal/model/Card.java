@@ -44,7 +44,8 @@ public class Card {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    @OneToOne(mappedBy = "card", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "account_id", referencedColumnName = "account_id")
     private Account account;
 
     @ManyToOne(fetch = FetchType.EAGER)

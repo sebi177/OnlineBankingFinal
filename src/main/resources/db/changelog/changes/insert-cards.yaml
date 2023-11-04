@@ -1,0 +1,36 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: insert-card1
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('cd9a4740-ba70-463a-b1f0-706029bca52c')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4745878118536441'
+              - column:
+                  name: card_holder
+                  value: 'John Doe'
+              - column:
+                  name: cvv
+                  value: '738'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 23:59:59'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('3ec8670a-5599-4d22-b876-a0ace79a93cc')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"

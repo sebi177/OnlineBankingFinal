@@ -2,6 +2,7 @@ package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.dto.ManagerDTO;
+import com.example.onlinebankingfinal.model.Client;
 import com.example.onlinebankingfinal.model.Manager;
 import com.example.onlinebankingfinal.service.ClientService;
 import com.example.onlinebankingfinal.service.ManagerService;
@@ -49,4 +50,9 @@ public class ManagerController {
         managerService.deleteManager(managerId);
     }
 
+//    @PostMapping("/{managerId}/genClient")
+//    public ResponseEntity<Client> generateClient(UUID managerId){
+//        Client client = clientService.generateRandomClient(managerId);
+//        return new ResponseEntity<>(client, HttpStatus.CREATED);
+//    }
 }

@@ -66,7 +66,14 @@ public class Client {
     @JoinColumn(name = "manager_id", referencedColumnName = "manager_id")
     private Manager manager;
 
-
+    public Client(String taxCode, String firstName, String lastName, String email, String address, String phone) {
+        this.taxCode = taxCode;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+    }
 }
 
 //              Client

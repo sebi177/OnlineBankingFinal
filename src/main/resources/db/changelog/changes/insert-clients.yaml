@@ -1,0 +1,656 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-client1
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '3090086371437'
+              - column:
+                  name: first_name
+                  value: 'John'
+              - column:
+                  name: last_name
+                  value: 'Doe'
+              - column:
+                  name: email
+                  value: 'john.doe@example.com'
+              - column:
+                  name: address
+                  value: '123 Main St'
+              - column:
+                  name: phone
+                  value: '1234567890'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('6fd848cd-31e2-4462-b15e-3d11dd2c58cc')"
+
+  - changeSet:
+      id: insert-client2
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('46998f8e-e9aa-43c7-af48-eb296edfcabb')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '9659034163600'
+              - column:
+                  name: first_name
+                  value: 'Jane'
+              - column:
+                  name: last_name
+                  value: 'Smith'
+              - column:
+                  name: email
+                  value: 'jane.smith@example.com'
+              - column:
+                  name: address
+                  value: '456 Oak Rd'
+              - column:
+                  name: phone
+                  value: '9876543210'
+              - column:
+                  name: created_at
+                  value: '2023-09-19 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-19 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('6fd848cd-31e2-4462-b15e-3d11dd2c58cc')"
+
+  - changeSet:
+      id: insert-client3
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('61cc2aad-bedf-4273-b047-4a2d340b4a46')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '4187074459851'
+              - column:
+                  name: first_name
+                  value: 'Maria'
+              - column:
+                  name: last_name
+                  value: 'Garcia'
+              - column:
+                  name: email
+                  value: 'maria.garcia@example.com'
+              - column:
+                  name: address
+                  value: '789 Elm St'
+              - column:
+                  name: phone
+                  value: '5551234567'
+              - column:
+                  name: created_at
+                  value: '2023-09-20 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-20 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('6fd848cd-31e2-4462-b15e-3d11dd2c58cc')"
+
+  - changeSet:
+      id: insert-client4
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('8d06769b-c413-407b-872e-22982418391c')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2145013896491'
+              - column:
+                  name: first_name
+                  value: 'Michael'
+              - column:
+                  name: last_name
+                  value: 'Johnson'
+              - column:
+                  name: email
+                  value: 'michael.johnson@example.com'
+              - column:
+                  name: address
+                  value: '567 Pine St'
+              - column:
+                  name: phone
+                  value: '4449876543'
+              - column:
+                  name: created_at
+                  value: '2023-09-21 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-21 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('6fd848cd-31e2-4462-b15e-3d11dd2c58cc')"
+
+  - changeSet:
+      id: insert-client5
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('70a9f7fb-5ea0-4821-adf5-54fae40dd06e')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '4148037523169'
+              - column:
+                  name: first_name
+                  value: 'Laura'
+              - column:
+                  name: last_name
+                  value: 'Brown'
+              - column:
+                  name: email
+                  value: 'laura.brown@example.com'
+              - column:
+                  name: address
+                  value: '987 Maple St'
+              - column:
+                  name: phone
+                  value: '7891234560'
+              - column:
+                  name: created_at
+                  value: '2023-09-22 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-22 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('b14ee97b-bed6-4b5b-83d3-471f0dfee22b')"
+
+  - changeSet:
+      id: insert-client6
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('ff7615dc-7398-4ba4-86d9-a7bca1fd72b6')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '9654037581023'
+              - column:
+                  name: first_name
+                  value: 'Alex'
+              - column:
+                  name: last_name
+                  value: 'Johnson'
+              - column:
+                  name: email
+                  value: 'alex.johnson@example.com'
+              - column:
+                  name: address
+                  value: '123 Elm St'
+              - column:
+                  name: phone
+                  value: '5559876540'
+              - column:
+                  name: created_at
+                  value: '2023-09-23 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-23 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('b14ee97b-bed6-4b5b-83d3-471f0dfee22b')"
+
+  - changeSet:
+      id: insert-client7
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('25055baa-5016-49d9-a383-fb9e8363ccd3')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '1107027759300'
+              - column:
+                  name: first_name
+                  value: 'Sophia'
+              - column:
+                  name: last_name
+                  value: 'Smith'
+              - column:
+                  name: email
+                  value: 'sophia.smith@example.com'
+              - column:
+                  name: address
+                  value: '567 Oak Rd'
+              - column:
+                  name: phone
+                  value: '4449876550'
+              - column:
+                  name: created_at
+                  value: '2023-09-24 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-24 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('b14ee97b-bed6-4b5b-83d3-471f0dfee22b')"
+
+  - changeSet:
+      id: insert-client8
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2753051843799'
+              - column:
+                  name: first_name
+                  value: 'Daniel'
+              - column:
+                  name: last_name
+                  value: 'Davis'
+              - column:
+                  name: email
+                  value: 'daniel.davis@example.com'
+              - column:
+                  name: address
+                  value: '987 Pine St'
+              - column:
+                  name: phone
+                  value: '5551234567'
+              - column:
+                  name: created_at
+                  value: '2023-09-25 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-25 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('b14ee97b-bed6-4b5b-83d3-471f0dfee22b')"
+
+  - changeSet:
+      id: insert-client9
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('f0d88142-bb0c-4f5c-bcbb-7613864c941a')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2610092079317'
+              - column:
+                  name: first_name
+                  value: 'Emma'
+              - column:
+                  name: last_name
+                  value: 'Wilson'
+              - column:
+                  name: email
+                  value: 'emma.wilson@example.com'
+              - column:
+                  name: address
+                  value: '123 Oak St'
+              - column:
+                  name: phone
+                  value: '5559876555'
+              - column:
+                  name: created_at
+                  value: '2023-09-26 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-26 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('5fb5c142-7b08-4818-b251-bdc05523af8f')"
+
+  - changeSet:
+      id: insert-client10
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2376027225630'
+              - column:
+                  name: first_name
+                  value: 'Oliver'
+              - column:
+                  name: last_name
+                  value: 'Brown'
+              - column:
+                  name: email
+                  value: 'oliver.brown@example.com'
+              - column:
+                  name: address
+                  value: '789 Elm St'
+              - column:
+                  name: phone
+                  value: '4449876560'
+              - column:
+                  name: created_at
+                  value: '2023-09-27 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-27 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('5fb5c142-7b08-4818-b251-bdc05523af8f')"
+
+  - changeSet:
+      id: insert-client11
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5c9a23f8-0975-4641-ad10-c7fc233e799b')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2402085128579'
+              - column:
+                  name: first_name
+                  value: 'Liam'
+              - column:
+                  name: last_name
+                  value: 'Johnson'
+              - column:
+                  name: email
+                  value: 'liam.johnson@example.com'
+              - column:
+                  name: address
+                  value: '567 Pine St'
+              - column:
+                  name: phone
+                  value: '5551234567'
+              - column:
+                  name: created_at
+                  value: '2023-09-28 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-28 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('5fb5c142-7b08-4818-b251-bdc05523af8f')"
+
+  - changeSet:
+      id: insert-client12
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '2193012638964'
+              - column:
+                  name: first_name
+                  value: 'Ava'
+              - column:
+                  name: last_name
+                  value: 'Davis'
+              - column:
+                  name: email
+                  value: 'ava.davis@example.com'
+              - column:
+                  name: address
+                  value: '987 Oak Rd'
+              - column:
+                  name: phone
+                  value: '4449876565'
+              - column:
+                  name: created_at
+                  value: '2023-09-29 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-29 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('5fb5c142-7b08-4818-b251-bdc05523af8f')"
+
+  - changeSet:
+      id: insert-client13
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('e5b3a78e-8e4b-471d-9e6d-d70fd6f65590')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '1104065301253'
+              - column:
+                  name: first_name
+                  value: 'Sophia'
+              - column:
+                  name: last_name
+                  value: 'Davis'
+              - column:
+                  name: email
+                  value: 'sophia.davis@example.com'
+              - column:
+                  name: address
+                  value: '123 Pine St'
+              - column:
+                  name: phone
+                  value: '5559876570'
+              - column:
+                  name: created_at
+                  value: '2023-09-30 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-09-30 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('1bcd886d-b3fc-469c-8012-e67e79b35604')"
+
+  - changeSet:
+      id: insert-client14
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '4173024768718'
+              - column:
+                  name: first_name
+                  value: 'Ethan'
+              - column:
+                  name: last_name
+                  value: 'Martinez'
+              - column:
+                  name: email
+                  value: 'ethan.martinez@example.com'
+              - column:
+                  name: address
+                  value: '789 Pine St'
+              - column:
+                  name: phone
+                  value: '4449876575'
+              - column:
+                  name: created_at
+                  value: '2023-10-01 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-01 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('1bcd886d-b3fc-469c-8012-e67e79b35604')"
+
+  - changeSet:
+      id: insert-client15
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '3126075557843'
+              - column:
+                  name: first_name
+                  value: 'Liam'
+              - column:
+                  name: last_name
+                  value: 'Garcia'
+              - column:
+                  name: email
+                  value: 'liam.garcia@example.com'
+              - column:
+                  name: address
+                  value: '123 Elm Rd'
+              - column:
+                  name: phone
+                  value: '5559876580'
+              - column:
+                  name: created_at
+                  value: '2023-10-02 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-02 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('1bcd886d-b3fc-469c-8012-e67e79b35604')"
+
+  - changeSet:
+      id: insert-client16
+      author: admin
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+              - column:
+                  name: client_status
+                  value: 'ACTIVE'
+              - column:
+                  name: tax_code
+                  value: '9245084277439'
+              - column:
+                  name: first_name
+                  value: 'Ava'
+              - column:
+                  name: last_name
+                  value: 'Brown'
+              - column:
+                  name: email
+                  value: 'ava.brown@example.com'
+              - column:
+                  name: address
+                  value: '567 Oak St'
+              - column:
+                  name: phone
+                  value: '4449876585'
+              - column:
+                  name: created_at
+                  value: '2023-10-03 10:00:00'
+              - column:
+                  name: updated_at
+                  value: '2023-10-03 10:00:00'
+              - column:
+                  name: manager_id
+                  valueComputed: "UUID_TO_BIN('1bcd886d-b3fc-469c-8012-e67e79b35604')"
