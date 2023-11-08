@@ -1,7 +1,10 @@
 package com.example.onlinebankingfinal.controller;
 
+import com.example.onlinebankingfinal.dto.AccountFullDTO;
 import com.example.onlinebankingfinal.dto.ClientDTO;
+import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.Client;
+import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +19,7 @@ import java.util.UUID;
 @RequestMapping("/client")
 public class ClientController {
     private final ClientService clientService;
+    private final AccountService accountService;
 
     @PostMapping("/create")
     public ResponseEntity<ClientDTO> createClient(@RequestBody Client client) {
@@ -44,5 +48,11 @@ public class ClientController {
     @DeleteMapping("/delete/{clientId}")
     public void deleteClient(@PathVariable UUID clientId){
         clientService.deleteClient(clientId);
+    }
+
+    @PostMapping("/{clientId}/createAccount")
+    public ResponseEntity<AccountFullDTO> createAccountByClient(@PathVariable UUID clientId,@RequestBody Account account){
+        AccountFullDTO thisAccount = accountService.createAccountByClient(clientId, account);
+        return new ResponseEntity<>(thisAccount, HttpStatus.CREATED);
     }
 }

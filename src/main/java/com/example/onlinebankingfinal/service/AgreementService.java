@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.service;
 
 import com.example.onlinebankingfinal.dto.AgreementDTO;
+import com.example.onlinebankingfinal.dto.AgreementFullDTO;
 import com.example.onlinebankingfinal.model.Agreement;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface AgreementService {
     AgreementDTO updateAgreement(UUID agreementId, AgreementDTO agreementDTO);
 
     void deleteAgreement(UUID agreementId);
+
+    AgreementFullDTO createAgreementByAccount(UUID accountId, AgreementFullDTO agreement);
 }

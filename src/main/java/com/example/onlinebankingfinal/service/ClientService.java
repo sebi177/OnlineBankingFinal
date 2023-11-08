@@ -21,5 +21,7 @@ public interface ClientService {
 
     void deleteClient(UUID clientId);
 
+    ClientFullDTO createClientByManager(UUID managerId, Client client);
+
 //    Client generateRandomClient(UUID managerId);
 }

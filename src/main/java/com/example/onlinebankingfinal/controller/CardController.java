@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.CardDTO;
+import com.example.onlinebankingfinal.dto.CardFullDTO;
 import com.example.onlinebankingfinal.model.Card;
 import com.example.onlinebankingfinal.service.CardService;
 import lombok.RequiredArgsConstructor;
@@ -44,5 +45,11 @@ public class CardController {
     @DeleteMapping("/delete/{cardId}")
     public void deleteCard(@PathVariable UUID cardId){
         cardService.deleteCard(cardId);
+    }
+
+    @GetMapping("/{cardNumber}")
+    public ResponseEntity<CardFullDTO> findCardByCardNumber(@PathVariable String cardNumber){
+        CardFullDTO card = cardService.getCardByCardNumber(cardNumber);
+        return new ResponseEntity<>(card, HttpStatus.FOUND);
     }
 }

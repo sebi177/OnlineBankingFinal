@@ -2,10 +2,13 @@ package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.dto.ManagerDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.model.Client;
 import com.example.onlinebankingfinal.model.Manager;
+import com.example.onlinebankingfinal.model.Product;
 import com.example.onlinebankingfinal.service.ClientService;
 import com.example.onlinebankingfinal.service.ManagerService;
+import com.example.onlinebankingfinal.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ import java.util.UUID;
 public class ManagerController {
     private final ManagerService managerService;
     private final ClientService clientService;
+    private final ProductService productService;
 
     @PostMapping("/create")
     public ResponseEntity<ManagerDTO> createManager(@RequestBody Manager manager) {
@@ -50,9 +54,15 @@ public class ManagerController {
         managerService.deleteManager(managerId);
     }
 
-//    @PostMapping("/{managerId}/genClient")
-//    public ResponseEntity<Client> generateClient(UUID managerId){
-//        Client client = clientService.generateRandomClient(managerId);
-//        return new ResponseEntity<>(client, HttpStatus.CREATED);
-//    }
+    @PostMapping("/{managerId}/createClient")
+    public ResponseEntity<ClientFullDTO> createClient(@PathVariable UUID managerId,@RequestBody Client client){
+        ClientFullDTO thisClient = clientService.createClientByManager(managerId, client);
+        return new ResponseEntity<>(thisClient, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/{managerId}/createProduct")
+    public ResponseEntity<ProductFullDTO> createProduct(@PathVariable UUID managerId, @RequestBody Product product){
+        ProductFullDTO thisProduct = productService.createProductByManager(managerId, product);
+        return new ResponseEntity<>(thisProduct, HttpStatus.CREATED);
+    }
 }

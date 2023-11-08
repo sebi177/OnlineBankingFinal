@@ -10,5 +10,7 @@ databaseChangeLog:
   - include:
       file: db/changelog/changes/insert-cards.yaml
   - include:
+      file: db/changelog/changes/insert-transactions.yaml
+  - include:
       file: db/changelog/changes/add-foreign-key-constraint.yaml
 #

@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.service;
 
 import com.example.onlinebankingfinal.dto.ProductDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.model.Product;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface ProductService {
     ProductDTO updateProduct(UUID productId, ProductDTO productDTO);
 
     void deleteProduct(UUID productId);
+
+    ProductFullDTO createProductByManager(UUID managerId, Product product);
 }

@@ -1,11 +1,13 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.TransactionDTO;
+import com.example.onlinebankingfinal.dto.TransactionFullDTO;
 import com.example.onlinebankingfinal.model.Transaction;
 import com.example.onlinebankingfinal.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,5 +46,11 @@ public class TransactionController {
     @DeleteMapping("/delete/{transactionId}")
     public void deleteTransaction(@PathVariable UUID transactionId){
         transactionService.deleteTransaction(transactionId);
+    }
+
+    @PostMapping("/transfer")
+    public ResponseEntity<TransactionFullDTO> performTransaction(@RequestBody TransactionFullDTO transaction){
+        TransactionFullDTO newTransaction = transactionService.performTransaction(transaction);
+        return new ResponseEntity<>(newTransaction, HttpStatus.ACCEPTED);
     }
 }

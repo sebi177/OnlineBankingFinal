@@ -1,9 +1,12 @@
 package com.example.onlinebankingfinal.service.impl;
 
 import com.example.onlinebankingfinal.dto.ProductDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.mapper.ProductMapper;
+import com.example.onlinebankingfinal.model.Manager;
 import com.example.onlinebankingfinal.model.Product;
 import com.example.onlinebankingfinal.repository.ProductRepository;
+import com.example.onlinebankingfinal.service.ManagerService;
 import com.example.onlinebankingfinal.service.ProductService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +20,7 @@ import java.util.UUID;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final ManagerService managerService;
 
     @Override
     public ProductDTO createProduct(Product product){
@@ -51,5 +55,13 @@ public class ProductServiceImpl implements ProductService {
         Product existingProduct = productRepository.findById(productId)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found!"));
         productRepository.delete(existingProduct);
+    }
+
+    @Override
+    public ProductFullDTO createProductByManager(UUID managerId, Product product){
+        Manager thisManager = managerService.getById(managerId);
+        product.setManager(thisManager);
+        productRepository.save(product);
+        return productMapper.toFullDto(product);
     }
 }

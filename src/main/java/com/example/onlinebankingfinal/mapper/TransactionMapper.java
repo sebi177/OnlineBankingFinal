@@ -36,4 +36,5 @@ public interface TransactionMapper {
     @Mapping(source = "debitAccount.accountId", target = "debitAccount")
     @Mapping(source = "creditAccount.accountId", target = "creditAccount")
     List<TransactionFullDTO> listToFullDto(List<Transaction> transactionList);
+
 }

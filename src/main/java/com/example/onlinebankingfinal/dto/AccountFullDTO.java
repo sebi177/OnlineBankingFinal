@@ -10,5 +10,4 @@ public class AccountFullDTO {
     private String accountBalance;
     private String accountCurrencyCode;
     private String client;
-    private String card;
 }

@@ -96,7 +96,7 @@ databaseChangeLog:
                   type: VARCHAR(50)
               - column:
                   name: card_number
-                  type: VARCHAR(16)
+                  type: VARCHAR(20)
               - column:
                   name: card_holder
                   type: VARCHAR(255)
@@ -153,6 +153,9 @@ databaseChangeLog:
               - column:
                   name: phone
                   type: VARCHAR(20)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -266,8 +269,9 @@ databaseChangeLog:
               - column:
                   name: transaction_amount
                   type: DECIMAL(16,2)
-                  constraints:
-                    nullable: false
+              - column:
+                  name: currency_code
+                  type: VARCHAR(3)
               - column:
                   name: transaction_description
                   type: VARCHAR(255)

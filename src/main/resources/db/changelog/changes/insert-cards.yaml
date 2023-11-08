@@ -9,22 +9,372 @@ databaseChangeLog:
             columns:
               - column:
                   name: card_id
-                  valueComputed: "UUID_TO_BIN('cd9a4740-ba70-463a-b1f0-706029bca52c')"
+                  valueComputed: "UUID_TO_BIN('97876be9-665a-4301-906b-7a7dc4429bfc')"
               - column:
                   name: card_type
                   value: 'VISA'
               - column:
                   name: card_number
-                  value: '4745878118536441'
+                  value: '4648-8807-4770-7516'
+              - column:
+                  name: card_holder
+                  value: 'Liam Garcia'
+              - column:
+                  name: cvv
+                  value: '511'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('04b1cb5d-14e6-4f7f-b93a-7b8d63c9f421')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-card2
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('e0a5691a-4ff2-41be-bdbf-5205209c3797')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4984-4666-7639-3395'
+              - column:
+                  name: card_holder
+                  value: 'Ava Brown'
+              - column:
+                  name: cvv
+                  value: '598'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('04b1cb6e-524d-4e4a-9b48-4e6e38a2f6c5')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-card3
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('c4363a89-fee7-4b6e-9d7f-601d3be9dd8e')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4713-2872-8172-3182'
+              - column:
+                  name: card_holder
+                  value: 'Ava Brown'
+              - column:
+                  name: cvv
+                  value: '759'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('fe6a125e-9c41-4b69-9d4f-8b2d2e3c9f7e')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-card4
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('4239955c-fbbb-4fbb-8d69-6860a50ecebb')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4182-6995-4372-7292'
+              - column:
+                  name: card_holder
+                  value: 'Maria Garcia'
+              - column:
+                  name: cvv
+                  value: '469'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('0ca4f4f1-0a7b-482e-94c0-29ce3a48086f')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('61cc2aad-bedf-4273-b047-4a2d340b4a46')"
+
+  - changeSet:
+      id: insert-card5
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('a430fc38-00bd-449b-9b07-628b74378c42')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4224-4066-1139-6384'
+              - column:
+                  name: card_holder
+                  value: 'Liam Garcia'
+              - column:
+                  name: cvv
+                  value: '654'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('12c2ad76-623c-4c17-9d5f-623981e06c92')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-card6
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('0447fc3b-02b1-497c-9e23-0f379350092e')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4629-0813-0585-5648'
+              - column:
+                  name: card_holder
+                  value: 'Ethan Martinez'
+              - column:
+                  name: cvv
+                  value: '238'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('f88e6c24-971b-43d6-930f-10c0e41a6b24')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-card7
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('c9886a2d-0efa-454b-b7ae-27fb6da33de9')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4586-1778-6944-7318'
+              - column:
+                  name: card_holder
+                  value: 'Ethan Martinez'
+              - column:
+                  name: cvv
+                  value: '689'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('2799f2d6-05f0-4678-9e9d-c7a8946a0a64')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-card8
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('104e8da9-865e-45b6-a00a-3470bfd0fcd6')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4949-7738-3715-0448'
+              - column:
+                  name: card_holder
+                  value: 'Oliver Brown'
+              - column:
+                  name: cvv
+                  value: '641'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('f7b3d6f5-7e68-42cd-a8f5-3a8b5a01f76e')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+
+  - changeSet:
+      id: insert-card9
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('b914a3b7-8235-4f18-b26e-4571cf96083f')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4087-4565-1901-4718'
+              - column:
+                  name: card_holder
+                  value: 'Sophia Davis'
+              - column:
+                  name: cvv
+                  value: '313'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('db01a67e-8f47-49a9-97a2-5de1b072a949')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('e5b3a78e-8e4b-471d-9e6d-d70fd6f65590')"
+
+  - changeSet:
+      id: insert-card10
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('b18fc53a-6f30-46fd-bdfb-d5d4bc6da458')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4430-1253-1973-8677'
+              - column:
+                  name: card_holder
+                  value: 'Oliver Brown'
+              - column:
+                  name: cvv
+                  value: '088'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('3e8a3e8e-6100-4b11-bd88-1d5b27ea67b9')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5a897d13-82f6-49cb-a761-d55e4ac83b4c')"
+
+  - changeSet:
+      id: insert-card11
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('689ba288-9b03-4eca-b546-6cfe1c3fcc9b')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4733-9681-2978-5816'
               - column:
                   name: card_holder
                   value: 'John Doe'
               - column:
                   name: cvv
-                  value: '738'
+                  value: '668'
               - column:
                   name: expiration_date
-                  value: '2025-12-31 23:59:59'
+                  value: '2025-12-31 10:00:00'
               - column:
                   name: created_at
                   value: '2023-09-18 10:00:00'
@@ -34,3 +384,459 @@ databaseChangeLog:
               - column:
                   name: client_id
                   valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"
+
+  - changeSet:
+      id: insert-card12
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('4d546555-7dc4-40e1-aff7-18c6ef82cd32')"
+              - column:
+                  name: card_type
+                  value: 'VISA'
+              - column:
+                  name: card_number
+                  value: '4344-1336-3691-6831'
+              - column:
+                  name: card_holder
+                  value: 'John Doe'
+              - column:
+                  name: cvv
+                  value: '360'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('40a86f29-7799-4c62-b3f6-a0ace79a93cc')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2beea291-71f9-44fa-a036-c3dbff966a8d')"
+
+  - changeSet:
+      id: insert-card13
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('d0b02b32-85b1-4459-8128-e691b0e2388a')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5415-5093-5345-0602'
+              - column:
+                  name: card_holder
+                  value: 'Ava Davis'
+              - column:
+                  name: cvv
+                  value: '419'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('47cb2b97-5ca9-4e5f-9ab1-6c284b79a13a')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+
+  - changeSet:
+      id: insert-card14
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('f812a0c5-10b5-4396-a53f-07855bdfe899')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5404-0426-2789-2741'
+              - column:
+                  name: card_holder
+                  value: 'Michael Johnson'
+              - column:
+                  name: cvv
+                  value: '895'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('57e54b72-76b5-4f7d-b23c-8f5823efcc49')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('8d06769b-c413-407b-872e-22982418391c')"
+
+  - changeSet:
+      id: insert-card15
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('ea04ea65-84aa-48a2-99a5-cd18bd0bf862')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5489-4030-4450-0242'
+              - column:
+                  name: card_holder
+                  value: 'Liam Garcia'
+              - column:
+                  name: cvv
+                  value: '644'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('d4c76e62-925e-4c1f-8dd3-7b236ea91c8c')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('d9bfc6e6-5ddc-40b9-b90f-0ca97fbe32e2')"
+
+  - changeSet:
+      id: insert-card16
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('f542861e-1c13-41d9-b4bb-8e2ff475b3ec')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5484-9086-8870-7999'
+              - column:
+                  name: card_holder
+                  value: 'Daniel Davis'
+              - column:
+                  name: cvv
+                  value: '663'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('d0a0e356-3e5c-4f17-b3db-d4633a2dfe15')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+
+  - changeSet:
+      id: insert-card17
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('65165fb6-52ff-4a4e-a2ec-6336326832bc')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5459-1031-9529-6279'
+              - column:
+                  name: card_holder
+                  value: 'Michael Johnson'
+              - column:
+                  name: cvv
+                  value: '372'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('6aef29b9-6411-487e-88ca-14d159ed4dc4')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('8d06769b-c413-407b-872e-22982418391c')"
+
+  - changeSet:
+      id: insert-card18
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('10c80c2c-482a-455c-a071-80d738bd86f1')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5471-3363-5036-3344'
+              - column:
+                  name: card_holder
+                  value: 'Liam Johnson'
+              - column:
+                  name: cvv
+                  value: '886'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('ce20638f-1391-4512-90c7-60d8e9519857')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('5c9a23f8-0975-4641-ad10-c7fc233e799b')"
+
+  - changeSet:
+      id: insert-card19
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('2045e735-8634-407f-a8b2-4f603c3f891e')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5496-4048-0397-1922'
+              - column:
+                  name: card_holder
+                  value: 'Emma Wilson'
+              - column:
+                  name: cvv
+                  value: '964'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('8a3dd50c-0a98-47a0-94b3-2b84e6d8cb5d')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('f0d88142-bb0c-4f5c-bcbb-7613864c941a')"
+
+  - changeSet:
+      id: insert-card20
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('57d469dd-d24e-4194-90de-2b9e2d58f625')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5481-1462-0743-9686'
+              - column:
+                  name: card_holder
+                  value: 'Daniel,Davis'
+              - column:
+                  name: cvv
+                  value: '558'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('bd44a6f5-7e5e-4dcd-8f94-2a12b4417751')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('b926828a-1aad-4bf9-95dc-683f3d5a2cb4')"
+
+  - changeSet:
+      id: insert-card21
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('4fabaa8c-10ec-4e2d-a93e-9b807d01a729')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5481-3314-0373-0696'
+              - column:
+                  name: card_holder
+                  value: 'Ava Davis'
+              - column:
+                  name: cvv
+                  value: '322'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('90e3e9da-830b-4c60-9ae9-ea132e6aee15')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('2a898104-6406-41dc-b2d4-53e4beddbd17')"
+
+  - changeSet:
+      id: insert-card22
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('dafd7a1f-3178-4c02-8b61-e98087c5ca79')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '5464-0733-1364-5678'
+              - column:
+                  name: card_holder
+                  value: 'Ethan Martinez'
+              - column:
+                  name: cvv
+                  value: '122'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('925aae4a-63f5-4c71-8905-2dcb33bb1249')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('c06ec700-3b8b-4511-b654-decd1a167631')"
+
+  - changeSet:
+      id: insert-card23
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('546fdc17-4920-4e90-a619-814279662e55')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '4047-7707-7342-8227'
+              - column:
+                  name: card_holder
+                  value: 'Ava Brown'
+              - column:
+                  name: cvv
+                  value: '322'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('96b09ce5-2260-4a88-9e11-6b9a7c7f9d4c')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('95af29ed-adf3-453f-9649-b4af66b5a8b3')"
+
+  - changeSet:
+      id: insert-card24
+      author: admin
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_id
+                  valueComputed: "UUID_TO_BIN('bd230423-9e27-4fcb-a869-8412601654c4')"
+              - column:
+                  name: card_type
+                  value: 'MASTERCARD'
+              - column:
+                  name: card_number
+                  value: '4569-2129-2697-7907'
+              - column:
+                  name: card_holder
+                  value: 'Alex Johnson'
+              - column:
+                  name: cvv
+                  value: '353'
+              - column:
+                  name: expiration_date
+                  value: '2025-12-31 10:00:00'
+              - column:
+                  name: created_at
+                  value: '2023-09-18 10:00:00'
+              - column:
+                  name: account_id
+                  valueComputed: "UUID_TO_BIN('b6a852e9-117d-48d0-9d47-6d5e94f01b1e')"
+              - column:
+                  name: client_id
+                  valueComputed: "UUID_TO_BIN('ff7615dc-7398-4ba4-86d9-a7bca1fd72b6')"
+

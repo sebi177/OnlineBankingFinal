@@ -1,6 +1,8 @@
 package com.example.onlinebankingfinal.service;
 
 import com.example.onlinebankingfinal.dto.CardDTO;
+import com.example.onlinebankingfinal.dto.CardFullDTO;
+import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.Card;
 
 import java.util.List;
@@ -18,4 +20,10 @@ public interface CardService {
     CardDTO updateCard(UUID cardId, CardDTO cardDTO);
 
     void deleteCard(UUID cardId);
+
+    CardFullDTO createCardByAccount(UUID accountId, Card card);
+
+    CardFullDTO getCardByCardNumber(String cardNumber);
+
+    CardFullDTO generateCard(Account account);
 }

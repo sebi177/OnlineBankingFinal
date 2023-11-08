@@ -22,19 +22,15 @@ public interface AccountMapper {
     List<AccountDTO> toDTO(List<Account> accountList);
 
     @Mapping(source = "client", target = "client.clientId")
-    @Mapping(source = "card", target = "card.cardId")
     void updateAccount(AccountFullDTO accountFullDTO, @MappingTarget Account account);
 
     @Mapping(source = "client", target = "client.clientId")
-    @Mapping(source = "card", target = "card.cardId")
     Account toAccount(AccountFullDTO accountFullDTO);
 
     @Mapping(source = "client.clientId", target = "client")
-    @Mapping(source = "card.cardId", target = "card")
     AccountFullDTO toFullDTO(Account account);
 
     @Mapping(source = "client.clientId", target = "client")
-    @Mapping(source = "card.cardId", target = "card")
     List<AccountFullDTO> toFullDTO(List<Account> accountList);
 
 }

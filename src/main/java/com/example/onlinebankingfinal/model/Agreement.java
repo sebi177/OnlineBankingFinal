@@ -32,7 +32,7 @@ public class Agreement {
     private AgreementStatus agreementStatus;
 
     @Column(name = "agreement_sum")
-    private BigDecimal agreementSum;
+    private Double agreementSum;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

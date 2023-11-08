@@ -10,7 +10,6 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -41,7 +40,7 @@ public class Account {
     private AccountStatus accountStatus;
 
     @Column(name = "account_balance")
-    private BigDecimal accountBalance;
+    private Double accountBalance;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "account_currency_code")
@@ -61,10 +60,6 @@ public class Account {
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     private Client client;
 
-//    @OneToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "card_id", referencedColumnName = "card_id")
-//    private Card card;
-
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     private List<Agreement> agreementList;
 
@@ -74,8 +69,21 @@ public class Account {
     @OneToMany(mappedBy = "creditAccount", fetch = FetchType.EAGER)
     private Set<Transaction> creditTransaction;
 
-}
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountId=" + accountId +
+                ", accountName='" + accountName + '\'' +
+                ", accountType=" + accountType +
+                ", accountStatus=" + accountStatus +
+                ", accountBalance=" + accountBalance +
+                ", accountCurrencyCode=" + accountCurrencyCode +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 
+}
 
 //          Account
 //        - id: UUID
