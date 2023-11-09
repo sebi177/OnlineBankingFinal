@@ -2,7 +2,6 @@ package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.*;
 import com.example.onlinebankingfinal.model.Account;
-import com.example.onlinebankingfinal.model.Agreement;
 import com.example.onlinebankingfinal.model.Card;
 import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.AgreementService;
@@ -85,4 +84,9 @@ public class AccountController {
         return new ResponseEntity<>(thisCard, HttpStatus.CREATED);
     }
 
+    @GetMapping("/statistic/{accountId}")
+    public ResponseEntity<TransactionStatisticsDTO> statistic(@PathVariable UUID accountId){
+        TransactionStatisticsDTO thisStatistic =  transactionService.accountStatistic(accountId);
+        return new ResponseEntity<>(thisStatistic, HttpStatus.OK);
+    }
 }

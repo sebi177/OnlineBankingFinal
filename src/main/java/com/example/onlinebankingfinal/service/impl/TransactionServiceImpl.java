@@ -2,6 +2,7 @@ package com.example.onlinebankingfinal.service.impl;
 
 import com.example.onlinebankingfinal.dto.TransactionDTO;
 import com.example.onlinebankingfinal.dto.TransactionFullDTO;
+import com.example.onlinebankingfinal.dto.TransactionStatisticsDTO;
 import com.example.onlinebankingfinal.mapper.TransactionMapper;
 import com.example.onlinebankingfinal.model.Transaction;
 import com.example.onlinebankingfinal.repository.TransactionRepository;
@@ -70,7 +71,11 @@ public class TransactionServiceImpl implements TransactionService {
         return transaction;
     }
 
-}
+    @Override
+    public TransactionStatisticsDTO  accountStatistic(UUID accountId){
+        return  transactionRepository.calculateStatisticsForAccount(accountId);
+    }
+    }
 
 
 

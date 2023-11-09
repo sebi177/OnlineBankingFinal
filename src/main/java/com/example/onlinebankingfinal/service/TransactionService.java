@@ -2,6 +2,7 @@ package com.example.onlinebankingfinal.service;
 
 import com.example.onlinebankingfinal.dto.TransactionDTO;
 import com.example.onlinebankingfinal.dto.TransactionFullDTO;
+import com.example.onlinebankingfinal.dto.TransactionStatisticsDTO;
 import com.example.onlinebankingfinal.model.Transaction;
 
 import java.util.List;
@@ -23,4 +24,6 @@ public interface TransactionService {
     List<TransactionFullDTO> historyTransactions(UUID accountId);
 
     TransactionFullDTO performTransaction(TransactionFullDTO transaction);
+
+    TransactionStatisticsDTO accountStatistic(UUID accountId);
 }

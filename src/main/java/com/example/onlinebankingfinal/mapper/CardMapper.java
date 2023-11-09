@@ -31,9 +31,11 @@ public interface CardMapper {
 
     @Mapping(source = "account.accountId", target = "account")
     @Mapping(source = "client.clientId", target = "client")
+    @Mapping(source = "card.expirationDate", target = "expirationDate")
     CardFullDTO toFullDto(Card card);
 
     @Mapping(source = "account.accountId", target = "account")
     @Mapping(source = "client.clientId", target = "client")
+    @Mapping(source = "card.expirationDate", target = "expirationDate")
     List<CardFullDTO> listToFullDto(List<Card> cardList);
 }

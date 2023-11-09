@@ -8,6 +8,7 @@ public class CardFullDTO {
     private String cardNumber;
     private String cardHolder;
     private String cvv;
+    private String expirationDate;
     private String client;
     private String account;
 }

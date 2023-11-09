@@ -15,6 +15,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -28,42 +29,42 @@ public class CardServiceImpl implements CardService {
     private final ClientService clientService;
 
     @Override
-    public CardDTO createCard(Card card){
+    public CardDTO createCard(Card card) {
         return cardMapper.toDto(cardRepository.save(card));
     }
 
     @Override
-    public CardDTO getDtoById(UUID cardId){
+    public CardDTO getDtoById(UUID cardId) {
         return cardMapper.toDto(getById(cardId));
     }
 
     @Override
-    public Card getById(UUID cardId){
+    public Card getById(UUID cardId) {
         return cardRepository.findById(cardId)
                 .orElseThrow(() -> new EntityNotFoundException("Card not found!"));
     }
 
     @Override
-    public List<CardDTO> getAllCards(){
+    public List<CardDTO> getAllCards() {
         return cardMapper.listToDto(cardRepository.findAll());
     }
 
     @Override
-    public CardDTO updateCard(UUID cardId, CardDTO cardDTO){
+    public CardDTO updateCard(UUID cardId, CardDTO cardDTO) {
         Card existingCard = getById(cardId);
         cardMapper.updateCardFromDTO(cardDTO, existingCard);
         return cardMapper.toDto(cardRepository.save(existingCard));
     }
 
     @Override
-    public void deleteCard(UUID cardId){
+    public void deleteCard(UUID cardId) {
         Card existingCard = cardRepository.findById(cardId)
                 .orElseThrow(() -> new EntityNotFoundException("Card not found!"));
         cardRepository.delete(existingCard);
     }
 
     @Override
-    public CardFullDTO createCardByAccount(UUID accountId, Card card){
+    public CardFullDTO createCardByAccount(UUID accountId, Card card) {
         Account thisAccount = accountService.getById(accountId);
         Client thisClient = thisAccount.getClient();
         card.setAccount(thisAccount);
@@ -73,31 +74,37 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public CardFullDTO getCardByCardNumber(String cardNumber){
+    public CardFullDTO getCardByCardNumber(String cardNumber) {
         Card existingCard = cardRepository.findByCardNumber(cardNumber);
         return cardMapper.toFullDto(existingCard);
     }
 
     @Override
-    public CardFullDTO generateCard(Account account){
+    public CardFullDTO generateCard(Account account) {
         Client thisClient = clientService.getById(account.getClient().getClientId());
         Card newCard = new Card();
+        newCard.setAccount(account);
+        newCard.setClient(thisClient);
         newCard.setCardHolder(generateCardHolder(thisClient));
+        newCard.setCardType(CardType.VISA);
         newCard.setCardNumber(generateCardNumber(CardType.VISA));
+        newCard.setCvv(cvvGenerator());
+        cardRepository.save(newCard);
+        newCard.setExpirationDate(expirationDate(newCard.getCreatedAt()));
         cardRepository.save(newCard);
         return cardMapper.toFullDto(newCard);
     }
 
-    public String generateCardHolder(Client client){
-        return client.getFirstName() + client.getLastName();
+    public String generateCardHolder(Client client) {
+        return client.getFirstName() + " " + client.getLastName();
     }
 
     public String generateCardNumber(CardType cardType) {
-        int startingDigit;
+        int startingDigit = 0;
 
         if (cardType == CardType.VISA) {
             startingDigit = 4;
-        } else {
+        } else if (cardType == CardType.MASTERCARD){
             startingDigit = 5;
         }
 
@@ -109,5 +116,13 @@ public class CardServiceImpl implements CardService {
         }
 
         return cardNumber.toString();
+    }
+
+    public LocalDateTime expirationDate(LocalDateTime createdAt) {
+        return createdAt.plusYears(3);
+    }
+
+    public Integer cvvGenerator() {
+        return new Random().nextInt(100, 1000);
     }
 }
