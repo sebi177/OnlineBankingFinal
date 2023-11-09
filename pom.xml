@@ -92,13 +92,6 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- -->
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-            <version>1.10.5</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -109,13 +102,6 @@
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.10</version>
             <scope>test</scope>
-        </dependency>
-
-        <!--AOP ASPECT -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.19</version>
         </dependency>
 
         <dependency>
