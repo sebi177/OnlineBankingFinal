@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -52,6 +53,31 @@ public class Agreement {
     @JoinColumn(name = "account_id", referencedColumnName = "account_id")
     private Account account;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Agreement agreement)) return false;
+        return Objects.equals(agreementId, agreement.agreementId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(agreementId);
+    }
+
+    @Override
+    public String toString() {
+        return "Agreement{" +
+                "agreementId=" + agreementId +
+                ", interestRate=" + interestRate +
+                ", agreementStatus=" + agreementStatus +
+                ", agreementSum=" + agreementSum +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", product=" + product +
+                ", account=" + account +
+                '}';
+    }
 }
 
 //          Agreement

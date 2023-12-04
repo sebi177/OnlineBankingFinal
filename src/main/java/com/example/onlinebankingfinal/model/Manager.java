@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -50,6 +51,29 @@ public class Manager {
     @OneToMany(mappedBy = "manager", fetch = FetchType.EAGER)
     private List<Product> productList;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Manager manager)) return false;
+        return Objects.equals(managerId, manager.managerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(managerId);
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "managerId=" + managerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", managerStatus=" + managerStatus +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
 
 //          Manager

@@ -1,9 +1,11 @@
 package com.example.onlinebankingfinal.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class ErrorDTO {
-    int code;
+    Integer code;
     String message;
 }

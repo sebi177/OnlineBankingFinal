@@ -20,25 +20,25 @@ public class AgreementController {
     @PostMapping("/create")
     public ResponseEntity<AgreementDTO> createAgreement(@RequestBody Agreement agreement){
         AgreementDTO createdAgreement = agreementService.createAgreement(agreement);
-        return new ResponseEntity<>(createdAgreement, HttpStatus.CREATED);
+        return new ResponseEntity<>(createdAgreement, HttpStatus.OK);
     }
 
     @GetMapping("/find/{agreementId}")
     public ResponseEntity<AgreementDTO> getAgreementById(@PathVariable UUID agreementId){
         AgreementDTO foundedAgreement = agreementService.getDtoById(agreementId);
-        return new ResponseEntity<>(foundedAgreement, HttpStatus.FOUND);
+        return new ResponseEntity<>(foundedAgreement, HttpStatus.OK);
     }
 
     @GetMapping("/findAll")
     public ResponseEntity<List<AgreementDTO>> getAllAgreements(){
         List<AgreementDTO> agreementList = agreementService.getAllAgreements();
-        return new ResponseEntity<>(agreementList, HttpStatus.FOUND);
+        return new ResponseEntity<>(agreementList, HttpStatus.OK);
     }
 
     @PostMapping("/update/{agreementId}")
     public ResponseEntity<AgreementDTO> updateAgreement(@PathVariable UUID agreementId,@RequestBody AgreementDTO agreementDTO){
         AgreementDTO updatedAgreement = agreementService.updateAgreement(agreementId, agreementDTO);
-        return new ResponseEntity<>(updatedAgreement, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(updatedAgreement, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{agreementId}")

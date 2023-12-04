@@ -1,67 +1,70 @@
-//package com.example.onlinebankingfinal.controller;
-//
-//import com.example.onlinebankingfinal.dto.AccountDTO;
-//import com.example.onlinebankingfinal.service.AccountService;
-//import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//
-//import java.util.UUID;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//@SpringBootTest
-//public class AccountControllerTest {
-//    @Autowired
-//    AccountService accountService;
-//
-//    @Test
-//    void getAccountDtoById(){
-//        AccountDTO currentAccount = accountService.getDtoById(UUID.fromString("2799f2d6-05f0-4678-9e9d-c7a8946a0a64"));
-//
-//        AccountDTO expectedAccount = new AccountDTO();
-//        expectedAccount.setAccountName("Cont30");
-//        expectedAccount.setAccountStatus("ACTIVE");
-//        expectedAccount.setAccountType("SAVINGS");
-//        expectedAccount.setAccountCurrencyCode("USD");
-//        expectedAccount.setAccountBalance("3234.78");
-//        assertEquals(expectedAccount, currentAccount);
-//    }
-//
-//    @Test
-//    void createAccount(){
-//        AccountDTO currentAccount = new AccountDTO();
-//        currentAccount.setAccountName("Dream car");
-//        currentAccount.setAccountType("CURRENT");
-//        currentAccount.setAccountStatus("ACTIVE");
-//        currentAccount.setAccountBalance("12345.67");
-//        currentAccount.setAccountCurrencyCode("USD");
-//
-//        AccountDTO expectedAccount = new AccountDTO();
-//        expectedAccount.setAccountName(currentAccount.getAccountName());
-//        expectedAccount.setAccountType(currentAccount.getAccountType());
-//        expectedAccount.setAccountStatus(currentAccount.getAccountStatus());
-//        expectedAccount.setAccountBalance(currentAccount.getAccountBalance());
-//        expectedAccount.setAccountCurrencyCode(currentAccount.getAccountCurrencyCode());
-//        assertEquals(expectedAccount, currentAccount);
-//    }
-//
-//
-//
-//
-////    {
-////        "accountId": "813d8452-4ec1-461b-bbc0-e9fcac792f31",
-////            "accountName": "Porsche for my Wife",
-////            "accountType": "SAVINGS",
-////            "accountStatus": "ACTIVE",
-////            "accountBalance": 123456,
-////            "accountCurrencyCode": "EUR",
-////            "createdAt": "2023-11-02T17:02:28.547+00:00",
-////            "updatedAt": "2023-11-02T17:02:28.547+00:00",
-////            "client": null,
-////            "card": null,
-////            "agreementList": null,
-////            "debitTransaction": null,
-////            "creditTransaction": null
-////    }
-//}
+package com.example.onlinebankingfinal.controller;
+
+import com.example.onlinebankingfinal.dto.AccountDTO;
+import com.example.onlinebankingfinal.model.Account;
+import com.example.onlinebankingfinal.model.enums.AccountStatus;
+import com.example.onlinebankingfinal.model.enums.AccountType;
+import com.example.onlinebankingfinal.model.enums.CurrencyCode;
+import com.example.onlinebankingfinal.service.AccountService;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+@Sql("/delete_tables.sql")
+@Sql("/create_tables.sql")
+@Sql("/insert_tables.sql")
+public class AccountControllerTest {
+    @Autowired
+    AccountService accountService;
+
+    @Test
+    void getAccountDtoById(){
+        AccountDTO currentAccount = accountService.getDtoById(UUID.fromString("50991763-ce2c-4862-827f-8cfacbd261e7"));
+
+        AccountDTO expectedAccount = new AccountDTO();
+        expectedAccount.setAccountName("Porsche for my Wife");
+        expectedAccount.setAccountStatus("ACTIVE");
+        expectedAccount.setAccountType("SAVINGS");
+        expectedAccount.setAccountCurrencyCode("USD");
+        expectedAccount.setAccountBalance("98826.78");
+        assertEquals(expectedAccount, currentAccount);
+    }
+
+    @Test
+    void createAccount(){
+        Account thisAccount = new Account();
+        thisAccount.setAccountName("Porsche for my Wife");
+        thisAccount.setAccountType(AccountType.valueOf("SAVINGS"));
+        thisAccount.setAccountStatus(AccountStatus.valueOf("ACTIVE"));
+        thisAccount.setAccountBalance(Double.valueOf("98392.36"));
+        thisAccount.setAccountCurrencyCode(CurrencyCode.valueOf("EUR"));
+
+        AccountDTO createdDto = accountService.createAccount(thisAccount);
+
+        AccountDTO expectedAccount = new AccountDTO();
+        expectedAccount.setAccountName("Porsche for my Wife");
+        expectedAccount.setAccountType("SAVINGS");
+        expectedAccount.setAccountStatus("ACTIVE");
+        expectedAccount.setAccountBalance("98392.36");
+        expectedAccount.setAccountCurrencyCode("EUR");
+        assertEquals(expectedAccount, createdDto);
+    }
+
+    void listAccounts() {
+        List<AccountDTO> currentList = accountService.getAllAccounts();
+
+        List<AccountDTO> expectedList = new ArrayList<>();
+
+    }
+
+}

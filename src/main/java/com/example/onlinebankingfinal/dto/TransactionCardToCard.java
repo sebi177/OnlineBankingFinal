@@ -1,14 +1,13 @@
 package com.example.onlinebankingfinal.dto;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
-public class TransactionDTO {
+public class TransactionCardToCard {
     private String transactionType;
     private String transactionAmount;
     private String transactionCurrencyCode;
     private String transactionDescription;
+    private String debitCardNumber;
+    private String creditCardNumber;
 }

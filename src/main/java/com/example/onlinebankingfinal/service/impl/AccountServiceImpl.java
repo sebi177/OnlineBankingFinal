@@ -2,7 +2,6 @@ package com.example.onlinebankingfinal.service.impl;
 
 import com.example.onlinebankingfinal.dto.AccountDTO;
 import com.example.onlinebankingfinal.dto.AccountFullDTO;
-import com.example.onlinebankingfinal.dto.CardFullDTO;
 import com.example.onlinebankingfinal.mapper.AccountMapper;
 import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.Card;
@@ -12,8 +11,9 @@ import com.example.onlinebankingfinal.model.enums.CurrencyCode;
 import com.example.onlinebankingfinal.repository.AccountRepository;
 import com.example.onlinebankingfinal.repository.CardRepository;
 import com.example.onlinebankingfinal.service.AccountService;
-import com.example.onlinebankingfinal.service.CardService;
 import com.example.onlinebankingfinal.service.ClientService;
+import com.example.onlinebankingfinal.service.exception.AccountNotFoundException;
+import com.example.onlinebankingfinal.service.exception.NegativeBalanceThrowException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -60,7 +60,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void deleteAccount(UUID accountId) {
         Account existingAccount = accountRepository.findById(accountId)
-                .orElseThrow(() -> new EntityNotFoundException("Account not found!"));
+                .orElseThrow(() -> new AccountNotFoundException("Account not found!"));
         accountRepository.delete(existingAccount);
     }
 
@@ -80,11 +80,15 @@ public class AccountServiceImpl implements AccountService {
         double newSourceBalance = (sourceBalance - transactionAmount) / sourceCurrencyCode.getExchangeRateToEUR();
         double newDestinationBalance = (destinationBalance + transactionAmount) / destinationCurrencyCode.getExchangeRateToEUR();
 
-        sourceAccount.setAccountBalance(newSourceBalance);
-        destinationAccount.setAccountBalance(newDestinationBalance);
+        if (newSourceBalance < 0) {
+            throw new NegativeBalanceThrowException("Not enough money!");
+        } else {
+            sourceAccount.setAccountBalance(newSourceBalance);
+            destinationAccount.setAccountBalance(newDestinationBalance);
 
-        accountRepository.save(sourceAccount);
-        accountRepository.save(destinationAccount);
+            accountRepository.save(sourceAccount);
+            accountRepository.save(destinationAccount);
+        }
     }
 
     @Override

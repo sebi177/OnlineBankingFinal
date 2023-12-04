@@ -1,5 +1,6 @@
 package com.example.onlinebankingfinal.service.impl;
 
+import com.example.onlinebankingfinal.controller.handler.ResponseExceptionHandler;
 import com.example.onlinebankingfinal.dto.ProductDTO;
 import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.mapper.ProductMapper;
@@ -8,6 +9,8 @@ import com.example.onlinebankingfinal.model.Product;
 import com.example.onlinebankingfinal.repository.ProductRepository;
 import com.example.onlinebankingfinal.service.ManagerService;
 import com.example.onlinebankingfinal.service.ProductService;
+import com.example.onlinebankingfinal.service.exception.AccountNotFoundException;
+import com.example.onlinebankingfinal.service.exception.ProductNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getById(UUID productId){
         return productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("Product not found!"));
+                .orElseThrow(() -> new ProductNotFoundException("Product not found!"));
     }
 
     @Override
@@ -53,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(UUID productId){
         Product existingProduct = productRepository.findById(productId)
-                .orElseThrow(() -> new EntityNotFoundException("Product not found!"));
+                .orElseThrow(() -> new ProductNotFoundException("Product not found!"));
         productRepository.delete(existingProduct);
     }
 

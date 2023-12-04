@@ -1,5 +1,6 @@
 package com.example.onlinebankingfinal.service;
 
+import com.example.onlinebankingfinal.dto.TransactionCardToCard;
 import com.example.onlinebankingfinal.dto.TransactionDTO;
 import com.example.onlinebankingfinal.dto.TransactionFullDTO;
 import com.example.onlinebankingfinal.dto.TransactionStatisticsDTO;
@@ -26,4 +27,6 @@ public interface TransactionService {
     TransactionFullDTO performTransaction(TransactionFullDTO transaction);
 
     TransactionStatisticsDTO accountStatistic(UUID accountId);
+
+    TransactionCardToCard transactionCardToCard(TransactionCardToCard transactionCardToCard);
 }

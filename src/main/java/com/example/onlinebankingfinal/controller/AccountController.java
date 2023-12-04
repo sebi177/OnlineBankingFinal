@@ -7,6 +7,10 @@ import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.AgreementService;
 import com.example.onlinebankingfinal.service.CardService;
 import com.example.onlinebankingfinal.service.TransactionService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,66 +31,66 @@ public class AccountController {
     @PostMapping("/create")
     public ResponseEntity<AccountDTO> createAccount(@RequestBody Account account) {
         AccountDTO createdAccount = accountService.createAccount(account);
-        return new ResponseEntity<>(createdAccount, HttpStatus.CREATED);
+        return new ResponseEntity<>(createdAccount, HttpStatus.OK);
     }
 
     @GetMapping("/find/{accountId}")
     public ResponseEntity<AccountDTO> getAccountById(@PathVariable UUID accountId) {
         AccountDTO foundedAccount = accountService.getDtoById(accountId);
-        return new ResponseEntity<>(foundedAccount, HttpStatus.FOUND);
+        return new ResponseEntity<>(foundedAccount, HttpStatus.OK);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<AccountDTO>> getAllAccounts(){
+    public ResponseEntity<List<AccountDTO>> getAllAccounts() {
         List<AccountDTO> accountList = accountService.getAllAccounts();
-        return new ResponseEntity<>(accountList, HttpStatus.FOUND);
+        return new ResponseEntity<>(accountList, HttpStatus.OK);
     }
 
     @PostMapping("/update/{accountId}")
-    public ResponseEntity<AccountDTO> updateAccount(@PathVariable UUID accountId,@RequestBody AccountDTO accountDTO){
+    public ResponseEntity<AccountDTO> updateAccount(@PathVariable UUID accountId, @RequestBody AccountDTO accountDTO) {
         AccountDTO updatedAccount = accountService.updateAccount(accountId, accountDTO);
-        return new ResponseEntity<>(updatedAccount, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{accountId}")
-    public void deleteAccount(@PathVariable UUID accountId){
+    public void deleteAccount(@PathVariable UUID accountId) {
         accountService.deleteAccount(accountId);
     }
 
     @GetMapping("transactions/{accountId}")
-    public ResponseEntity<List<TransactionFullDTO>> getTransactions(@PathVariable UUID accountId){
+    public ResponseEntity<List<TransactionFullDTO>> getTransactions(@PathVariable UUID accountId) {
         List<TransactionFullDTO> transactionFullDTOList = transactionService.historyTransactions(accountId);
-        return new ResponseEntity<>(transactionFullDTOList, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(transactionFullDTOList, HttpStatus.OK);
     }
 
     @PostMapping("/{accountId}/createCard")
-    public ResponseEntity<CardFullDTO> createCardByAccount(@PathVariable UUID accountId,@RequestBody Card card){
+    public ResponseEntity<CardFullDTO> createCardByAccount(@PathVariable UUID accountId, @RequestBody Card card) {
         CardFullDTO thisCard = cardService.createCardByAccount(accountId, card);
-        return new ResponseEntity<>(thisCard, HttpStatus.CREATED);
+        return new ResponseEntity<>(thisCard, HttpStatus.OK);
     }
 
     @PostMapping("/{accountId}/createAgreement")
-    public ResponseEntity<AgreementFullDTO> createAgreementByAccount(@PathVariable UUID accountId,@RequestBody AgreementFullDTO agreement){
+    public ResponseEntity<AgreementFullDTO> createAgreementByAccount(@PathVariable UUID accountId, @RequestBody AgreementFullDTO agreement) {
         AgreementFullDTO thisAgreement = agreementService.createAgreementByAccount(accountId, agreement);
-        return new ResponseEntity<>(thisAgreement, HttpStatus.CREATED);
+        return new ResponseEntity<>(thisAgreement, HttpStatus.OK);
     }
 
     @GetMapping("/{cardNumber}")
-    public ResponseEntity<AccountFullDTO> getAccountByCardNumber(@PathVariable String cardNumber){
+    public ResponseEntity<AccountFullDTO> getAccountByCardNumber(@PathVariable String cardNumber) {
         AccountFullDTO thisAccount = accountService.getAccountByCardNumber(cardNumber);
-        return new ResponseEntity<>(thisAccount, HttpStatus.FOUND);
+        return new ResponseEntity<>(thisAccount, HttpStatus.OK);
     }
 
     @PostMapping("/{accountId}/generateCard")
-    public ResponseEntity<CardFullDTO> generateCard(@PathVariable UUID accountId){
+    public ResponseEntity<CardFullDTO> generateCard(@PathVariable UUID accountId) {
         Account thisAccount = accountService.getById(accountId);
         CardFullDTO thisCard = cardService.generateCard(thisAccount);
-        return new ResponseEntity<>(thisCard, HttpStatus.CREATED);
+        return new ResponseEntity<>(thisCard, HttpStatus.OK);
     }
 
     @GetMapping("/statistic/{accountId}")
-    public ResponseEntity<TransactionStatisticsDTO> statistic(@PathVariable UUID accountId){
-        TransactionStatisticsDTO thisStatistic =  transactionService.accountStatistic(accountId);
+    public ResponseEntity<TransactionStatisticsDTO> statistic(@PathVariable UUID accountId) {
+        TransactionStatisticsDTO thisStatistic = transactionService.accountStatistic(accountId);
         return new ResponseEntity<>(thisStatistic, HttpStatus.OK);
     }
 }

@@ -1,13 +1,13 @@
 package com.example.onlinebankingfinal.service.impl;
 
-import com.example.onlinebankingfinal.dto.TransactionDTO;
-import com.example.onlinebankingfinal.dto.TransactionFullDTO;
-import com.example.onlinebankingfinal.dto.TransactionStatisticsDTO;
+import com.example.onlinebankingfinal.dto.*;
 import com.example.onlinebankingfinal.mapper.TransactionMapper;
 import com.example.onlinebankingfinal.model.Transaction;
 import com.example.onlinebankingfinal.repository.TransactionRepository;
 import com.example.onlinebankingfinal.service.AccountService;
+import com.example.onlinebankingfinal.service.CardService;
 import com.example.onlinebankingfinal.service.TransactionService;
+import com.example.onlinebankingfinal.service.exception.TransactionNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
     private final TransactionMapper transactionMapper;
     private final AccountService accountService;
+    private final CardService cardService;
 
     @Override
     public TransactionDTO createTransaction(Transaction transaction) {
@@ -31,7 +32,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction getById(UUID transactionId) {
         return transactionRepository.findById(transactionId)
-                .orElseThrow(() -> new EntityNotFoundException("Transaction not found!"));
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction not found!"));
     }
 
     @Override
@@ -72,10 +73,26 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public TransactionStatisticsDTO  accountStatistic(UUID accountId){
-        return  transactionRepository.calculateStatisticsForAccount(accountId);
+    public TransactionStatisticsDTO accountStatistic(UUID accountId) {
+        return transactionRepository.calculateStatisticsForAccount(accountId);
     }
+
+
+    @Override
+    public TransactionCardToCard transactionCardToCard(TransactionCardToCard transactionCardToCard){
+        CardFullDTO debitCard = cardService.getCardByCardNumber(transactionCardToCard.getDebitCardNumber());
+        CardFullDTO creditCard = cardService.getCardByCardNumber(transactionCardToCard.getCreditCardNumber());
+        TransactionFullDTO thisTransaction = new TransactionFullDTO();
+        thisTransaction.setTransactionType(transactionCardToCard.getTransactionType());
+        thisTransaction.setTransactionDescription(transactionCardToCard.getTransactionDescription());
+        thisTransaction.setTransactionAmount(transactionCardToCard.getTransactionAmount());
+        thisTransaction.setTransactionCurrencyCode(transactionCardToCard.getTransactionCurrencyCode());
+        thisTransaction.setDebitAccount(debitCard.getAccount());
+        thisTransaction.setCreditAccount(creditCard.getAccount());
+        performTransaction(thisTransaction);
+        return transactionCardToCard;
     }
+}
 
 
 

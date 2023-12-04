@@ -1,5 +1,6 @@
 package com.example.onlinebankingfinal.controller;
 
+import com.example.onlinebankingfinal.dto.TransactionCardToCard;
 import com.example.onlinebankingfinal.dto.TransactionDTO;
 import com.example.onlinebankingfinal.dto.TransactionFullDTO;
 import com.example.onlinebankingfinal.model.Transaction;
@@ -52,5 +53,11 @@ public class TransactionController {
     public ResponseEntity<TransactionFullDTO> performTransaction(@RequestBody TransactionFullDTO transaction){
         TransactionFullDTO newTransaction = transactionService.performTransaction(transaction);
         return new ResponseEntity<>(newTransaction, HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("/sendToCard")
+    public ResponseEntity<TransactionCardToCard> transactionCardtoCard(@RequestBody TransactionCardToCard transaction){
+        TransactionCardToCard thisTransaction = transactionService.transactionCardToCard(transaction);
+        return new ResponseEntity<>(thisTransaction, HttpStatus.OK);
     }
 }

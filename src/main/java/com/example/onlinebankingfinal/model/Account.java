@@ -13,6 +13,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -68,6 +69,18 @@ public class Account {
 
     @OneToMany(mappedBy = "creditAccount", fetch = FetchType.EAGER)
     private Set<Transaction> creditTransaction;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account account)) return false;
+        return Objects.equals(accountId, account.accountId) && Objects.equals(accountName, account.accountName) && Objects.equals(accountBalance, account.accountBalance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountId, accountName, accountBalance);
+    }
 
     @Override
     public String toString() {
