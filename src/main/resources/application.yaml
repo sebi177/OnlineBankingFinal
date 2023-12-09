@@ -16,8 +16,3 @@ spring:
         ddl-auto: none
     open-in-view: false
     show-sql: false
-
-#  security:
-#    user:
-#      name: admin
-#      password: admin

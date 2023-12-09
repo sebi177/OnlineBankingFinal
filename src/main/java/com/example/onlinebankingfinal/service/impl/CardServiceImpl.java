@@ -11,6 +11,7 @@ import com.example.onlinebankingfinal.repository.CardRepository;
 import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.CardService;
 import com.example.onlinebankingfinal.service.ClientService;
+import com.example.onlinebankingfinal.service.exception.CardNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,7 @@ public class CardServiceImpl implements CardService {
     @Override
     public Card getById(UUID cardId) {
         return cardRepository.findById(cardId)
-                .orElseThrow(() -> new EntityNotFoundException("Card not found!"));
+                .orElseThrow(() -> new CardNotFoundException("Card not found!"));
     }
 
     @Override
@@ -59,7 +60,7 @@ public class CardServiceImpl implements CardService {
     @Override
     public void deleteCard(UUID cardId) {
         Card existingCard = cardRepository.findById(cardId)
-                .orElseThrow(() -> new EntityNotFoundException("Card not found!"));
+                .orElseThrow(() -> new CardNotFoundException("Card not found!"));
         cardRepository.delete(existingCard);
     }
 

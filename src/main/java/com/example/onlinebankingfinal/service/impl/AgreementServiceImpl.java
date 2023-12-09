@@ -8,6 +8,7 @@ import com.example.onlinebankingfinal.model.Agreement;
 import com.example.onlinebankingfinal.repository.AgreementRepository;
 import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.AgreementService;
+import com.example.onlinebankingfinal.service.exception.AgreementNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ public class AgreementServiceImpl implements AgreementService {
     @Override
     public Agreement getById(UUID agreementId) {
         return agreementRepository.findById(agreementId)
-                .orElseThrow(() -> new EntityNotFoundException("Agreement not found!"));
+                .orElseThrow(() -> new AgreementNotFoundException("Agreement not found!"));
     }
 
     @Override
@@ -53,7 +54,7 @@ public class AgreementServiceImpl implements AgreementService {
     @Override
     public void deleteAgreement(UUID agreementId){
         Agreement existingAgreement = agreementRepository.findById(agreementId)
-                .orElseThrow(() -> new EntityNotFoundException("Agreement not found!"));
+                .orElseThrow(() -> new AgreementNotFoundException("Agreement not found!"));
         agreementRepository.delete(existingAgreement);
     }
 

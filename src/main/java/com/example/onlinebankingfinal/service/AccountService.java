@@ -21,7 +21,7 @@ public interface AccountService {
 
     AccountDTO updateAccount(UUID accountId, AccountDTO accountDTO);
 
-    void deleteAccount(UUID accountId);
+    AccountDTO deleteAccount(UUID accountId);
 
     void updateBalance(Transaction transaction);
 
