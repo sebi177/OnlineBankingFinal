@@ -3,6 +3,7 @@ package com.example.onlinebankingfinal.service.impl;
 import com.example.onlinebankingfinal.dto.*;
 import com.example.onlinebankingfinal.mapper.TransactionMapper;
 import com.example.onlinebankingfinal.model.Transaction;
+import com.example.onlinebankingfinal.model.enums.TransactionType;
 import com.example.onlinebankingfinal.repository.TransactionRepository;
 import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.CardService;
@@ -53,10 +54,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void deleteTransaction(UUID transactionId) {
-        Transaction existingTransaction = transactionRepository.findById(transactionId)
-                .orElseThrow(() -> new EntityNotFoundException("Transaction not found!"));
-        transactionRepository.delete(existingTransaction);
+    public TransactionDTO deleteTransaction(UUID transactionId) {
+        Transaction existingTransaction = getById(transactionId);
+        existingTransaction.setTransactionType(TransactionType.DELETED);
+        transactionRepository.save(existingTransaction);
+        return transactionMapper.toDto(existingTransaction);
     }
 
     @Override

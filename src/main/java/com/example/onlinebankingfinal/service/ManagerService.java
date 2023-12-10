@@ -17,5 +17,5 @@ public interface ManagerService {
 
     ManagerDTO updateManager(UUID managerId, ManagerDTO managerDTO);
 
-    void deleteManager(UUID managerId);
+    ManagerDTO deleteManager(UUID managerId);
 }

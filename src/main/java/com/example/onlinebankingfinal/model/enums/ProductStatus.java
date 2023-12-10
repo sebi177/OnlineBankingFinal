@@ -5,5 +5,6 @@ public enum ProductStatus {
     DISCONTINUED,
     ON_SALE,
     OUT_OF_STOCK,
-    PREORDER
+    PREORDER,
+    DELETED
 }

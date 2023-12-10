@@ -3,6 +3,7 @@ package com.example.onlinebankingfinal.service.impl;
 import com.example.onlinebankingfinal.dto.ManagerDTO;
 import com.example.onlinebankingfinal.mapper.ManagerMapper;
 import com.example.onlinebankingfinal.model.Manager;
+import com.example.onlinebankingfinal.model.enums.ManagerStatus;
 import com.example.onlinebankingfinal.repository.ManagerRepository;
 import com.example.onlinebankingfinal.service.ManagerService;
 import jakarta.persistence.EntityNotFoundException;
@@ -47,9 +48,10 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public void deleteManager(UUID managerId){
-        Manager existingManager = managerRepository.findById(managerId)
-                .orElseThrow(() -> new EntityNotFoundException("Manager not found!"));
-        managerRepository.delete(existingManager);
+    public ManagerDTO deleteManager(UUID managerId){
+        Manager existingManager = getById(managerId);
+        existingManager.setManagerStatus(ManagerStatus.DELETED);
+        managerRepository.save(existingManager);
+        return managerMapper.toDto(existingManager);
     }
 }

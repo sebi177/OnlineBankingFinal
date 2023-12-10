@@ -6,6 +6,7 @@ import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.mapper.ProductMapper;
 import com.example.onlinebankingfinal.model.Manager;
 import com.example.onlinebankingfinal.model.Product;
+import com.example.onlinebankingfinal.model.enums.ProductStatus;
 import com.example.onlinebankingfinal.repository.ProductRepository;
 import com.example.onlinebankingfinal.service.ManagerService;
 import com.example.onlinebankingfinal.service.ProductService;
@@ -54,10 +55,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteProduct(UUID productId){
-        Product existingProduct = productRepository.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found!"));
-        productRepository.delete(existingProduct);
+    public ProductDTO deleteProduct(UUID productId){
+        Product existingProduct = getById(productId);
+        existingProduct.setProductStatus(ProductStatus.DELETED);
+        productRepository.save(existingProduct);
+        return productMapper.toDto(existingProduct);
     }
 
     @Override

@@ -7,5 +7,6 @@ public enum TransactionType {
     PAYMENT,      // Plată pentru bunuri sau servicii
     REFUND,       // Rambursare a unei tranzacții anterioare
     INVESTMENT,   // Investiție sau cumpărare de valori mobiliare
-    FEE           // Taxă sau comision
+    FEE,          // Taxă sau comision
+    DELETED
 }

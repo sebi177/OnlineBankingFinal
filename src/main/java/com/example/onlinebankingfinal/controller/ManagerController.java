@@ -26,43 +26,44 @@ public class ManagerController {
     private final ProductService productService;
 
     @PostMapping("/create")
-    public ResponseEntity<ManagerDTO> createManager(@RequestBody Manager manager) {
-        ManagerDTO createdManager = managerService.createManager(manager);
-        return new ResponseEntity<>(createdManager, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public ManagerDTO createManager(@RequestBody Manager manager) {
+        return managerService.createManager(manager);
     }
 
     @GetMapping("/find/{managerId}")
-    public ResponseEntity<ManagerDTO> getManagerById(@PathVariable UUID managerId) {
-        ManagerDTO foundedManager = managerService.getDtoById(managerId);
-        return new ResponseEntity<>(foundedManager, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public ManagerDTO getManagerById(@PathVariable UUID managerId) {
+        return managerService.getDtoById(managerId);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<ManagerDTO>> getAllManagers(){
-        List<ManagerDTO> managerList = managerService.getAllManagers();
-        return new ResponseEntity<>(managerList, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public List<ManagerDTO> getAllManagers(){
+        return managerService.getAllManagers();
     }
 
     @PostMapping("/update/{managerId}")
-    public ResponseEntity<ManagerDTO> updateManager(@PathVariable UUID managerId, @RequestBody ManagerDTO managerDTO){
-        ManagerDTO updatedManager = managerService.updateManager(managerId, managerDTO);
-        return new ResponseEntity<>(updatedManager, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public ManagerDTO updateManager(@PathVariable UUID managerId, @RequestBody ManagerDTO managerDTO){
+        return managerService.updateManager(managerId, managerDTO);
     }
 
-    @DeleteMapping("/delete/{managerId}")
-    public void deleteManager(@PathVariable UUID managerId){
-        managerService.deleteManager(managerId);
+    @PostMapping("/delete/{managerId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ManagerDTO deleteManager(@PathVariable UUID managerId){
+        return managerService.deleteManager(managerId);
     }
 
     @PostMapping("/{managerId}/createClient")
-    public ResponseEntity<ClientFullDTO> createClient(@PathVariable UUID managerId,@RequestBody Client client){
-        ClientFullDTO thisClient = clientService.createClientByManager(managerId, client);
-        return new ResponseEntity<>(thisClient, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public ClientFullDTO createClient(@PathVariable UUID managerId,@RequestBody Client client){
+        return clientService.createClientByManager(managerId, client);
     }
 
     @PostMapping("/{managerId}/createProduct")
-    public ResponseEntity<ProductFullDTO> createProduct(@PathVariable UUID managerId, @RequestBody Product product){
-        ProductFullDTO thisProduct = productService.createProductByManager(managerId, product);
-        return new ResponseEntity<>(thisProduct, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public ProductFullDTO createProduct(@PathVariable UUID managerId, @RequestBody Product product){
+        return productService.createProductByManager(managerId, product);
     }
 }

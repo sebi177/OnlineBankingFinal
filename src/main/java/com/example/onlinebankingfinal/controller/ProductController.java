@@ -18,31 +18,32 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/create")
-    public ResponseEntity<ProductDTO> createProduct(@RequestBody Product product) {
-        ProductDTO createdProduct = productService.createProduct(product);
-        return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public ProductDTO createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
 
     @GetMapping("/find/{productId}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable UUID productId) {
-        ProductDTO foundedManager = productService.getDtoById(productId);
-        return new ResponseEntity<>(foundedManager, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public ProductDTO getProductById(@PathVariable UUID productId) {
+        return productService.getDtoById(productId);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<ProductDTO>> getAllProducts(){
-        List<ProductDTO> productList = productService.getAllProducts();
-        return new ResponseEntity<>(productList, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public List<ProductDTO> getAllProducts(){
+        return productService.getAllProducts();
     }
 
     @PostMapping("/update/{productId}")
-    public ResponseEntity<ProductDTO> updateProduct(@PathVariable UUID productId, @RequestBody ProductDTO productDTO){
-        ProductDTO updatedProduct = productService.updateProduct(productId, productDTO);
-        return new ResponseEntity<>(updatedProduct, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public ProductDTO updateProduct(@PathVariable UUID productId, @RequestBody ProductDTO productDTO){
+        return productService.updateProduct(productId, productDTO);
     }
 
-    @DeleteMapping("/delete/{productId}")
-    public void deleteProduct(@PathVariable UUID productId){
-        productService.deleteProduct(productId);
+    @PostMapping("/delete/{productId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ProductDTO deleteProduct(@PathVariable UUID productId){
+        return productService.deleteProduct(productId);
     }
 }

@@ -18,7 +18,7 @@ public interface ProductService {
 
     ProductDTO updateProduct(UUID productId, ProductDTO productDTO);
 
-    void deleteProduct(UUID productId);
+    ProductDTO deleteProduct(UUID productId);
 
     ProductFullDTO createProductByManager(UUID managerId, Product product);
 }

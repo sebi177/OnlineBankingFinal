@@ -20,7 +20,7 @@ public interface TransactionService {
 
     TransactionDTO updateTransaction(UUID transactionId, TransactionDTO transactionDTO);
 
-    void deleteTransaction(UUID transactionId);
+    TransactionDTO deleteTransaction(UUID transactionId);
 
     List<TransactionFullDTO> historyTransactions(UUID accountId);
 

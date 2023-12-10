@@ -21,43 +21,44 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping("/create")
-    public ResponseEntity<TransactionDTO> createTransaction(@RequestBody Transaction transaction) {
-        TransactionDTO createdTransaction = transactionService.createTransaction(transaction);
-        return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionDTO createTransaction(@RequestBody Transaction transaction) {
+        return transactionService.createTransaction(transaction);
     }
 
     @GetMapping("/find/{transactionId}")
-    public ResponseEntity<TransactionDTO> getTransactionById(@PathVariable UUID transactionId) {
-        TransactionDTO foundedTransaction = transactionService.getDtoById(transactionId);
-        return new ResponseEntity<>(foundedTransaction, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionDTO getTransactionById(@PathVariable UUID transactionId) {
+        return transactionService.getDtoById(transactionId);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<TransactionDTO>> getAllTransactions(){
-        List<TransactionDTO> transactionList = transactionService.getAllTransaction();
-        return new ResponseEntity<>(transactionList, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public List<TransactionDTO> getAllTransactions(){
+        return transactionService.getAllTransaction();
     }
 
     @PostMapping("/update/{transactionId}")
-    public ResponseEntity<TransactionDTO> updateTransaction(@PathVariable UUID transactionId, @RequestBody TransactionDTO transactionDTO){
-        TransactionDTO updatedTransaction = transactionService.updateTransaction(transactionId, transactionDTO);
-        return new ResponseEntity<>(updatedTransaction, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionDTO updateTransaction(@PathVariable UUID transactionId, @RequestBody TransactionDTO transactionDTO){
+        return transactionService.updateTransaction(transactionId, transactionDTO);
     }
 
     @DeleteMapping("/delete/{transactionId}")
-    public void deleteTransaction(@PathVariable UUID transactionId){
-        transactionService.deleteTransaction(transactionId);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionDTO deleteTransaction(@PathVariable UUID transactionId){
+        return transactionService.deleteTransaction(transactionId);
     }
 
     @PostMapping("/transfer")
-    public ResponseEntity<TransactionFullDTO> performTransaction(@RequestBody TransactionFullDTO transaction){
-        TransactionFullDTO newTransaction = transactionService.performTransaction(transaction);
-        return new ResponseEntity<>(newTransaction, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionFullDTO performTransaction(@RequestBody TransactionFullDTO transaction){
+        return transactionService.performTransaction(transaction);
     }
 
     @PostMapping("/sendToCard")
-    public ResponseEntity<TransactionCardToCard> transactionCardtoCard(@RequestBody TransactionCardToCard transaction){
-        TransactionCardToCard thisTransaction = transactionService.transactionCardToCard(transaction);
-        return new ResponseEntity<>(thisTransaction, HttpStatus.OK);
+    @ResponseStatus(HttpStatus.OK)
+    public TransactionCardToCard transactionCardtoCard(@RequestBody TransactionCardToCard transaction){
+        return transactionService.transactionCardToCard(transaction);
     }
 }

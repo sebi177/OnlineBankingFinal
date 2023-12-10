@@ -1,6 +1,5 @@
 package com.example.onlinebankingfinal.controller;
 
-import com.example.onlinebankingfinal.dto.AccountDTO;
 import com.example.onlinebankingfinal.dto.AccountFullDTO;
 import com.example.onlinebankingfinal.dto.ClientDTO;
 import com.example.onlinebankingfinal.model.Account;

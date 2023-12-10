@@ -10,5 +10,6 @@ public enum ManagerStatus {
     RECENTLY_PROMOTED,
     ON_LEAVE,
     TERMINATED,
-    REPLACED
+    REPLACED,
+    DELETED
 }
