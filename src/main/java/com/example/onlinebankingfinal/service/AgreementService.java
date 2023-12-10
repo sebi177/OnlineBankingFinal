@@ -19,7 +19,7 @@ public interface AgreementService {
 
     AgreementDTO updateAgreement(UUID agreementId, AgreementDTO agreementDTO);
 
-    void deleteAgreement(UUID agreementId);
+    AgreementDTO deleteAgreement(UUID agreementId);
 
     AgreementFullDTO createAgreementByAccount(UUID accountId, AgreementFullDTO agreement);
 }

@@ -18,31 +18,36 @@ public class AgreementController {
     private final AgreementService agreementService;
 
     @PostMapping("/create")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<AgreementDTO> createAgreement(@RequestBody Agreement agreement){
         AgreementDTO createdAgreement = agreementService.createAgreement(agreement);
         return new ResponseEntity<>(createdAgreement, HttpStatus.OK);
     }
 
     @GetMapping("/find/{agreementId}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<AgreementDTO> getAgreementById(@PathVariable UUID agreementId){
         AgreementDTO foundedAgreement = agreementService.getDtoById(agreementId);
         return new ResponseEntity<>(foundedAgreement, HttpStatus.OK);
     }
 
     @GetMapping("/findAll")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<AgreementDTO>> getAllAgreements(){
         List<AgreementDTO> agreementList = agreementService.getAllAgreements();
         return new ResponseEntity<>(agreementList, HttpStatus.OK);
     }
 
     @PostMapping("/update/{agreementId}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<AgreementDTO> updateAgreement(@PathVariable UUID agreementId,@RequestBody AgreementDTO agreementDTO){
         AgreementDTO updatedAgreement = agreementService.updateAgreement(agreementId, agreementDTO);
         return new ResponseEntity<>(updatedAgreement, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{agreementId}")
-    public void deleteAgreement(@PathVariable UUID agreementId){
-        agreementService.deleteAgreement(agreementId);
+    @PostMapping("/delete/{agreementId}")
+    @ResponseStatus(HttpStatus.OK)
+    public AgreementDTO deleteAgreement(@PathVariable UUID agreementId){
+        return agreementService.deleteAgreement(agreementId);
     }
 }

@@ -5,6 +5,7 @@ import com.example.onlinebankingfinal.dto.AgreementFullDTO;
 import com.example.onlinebankingfinal.mapper.AgreementMapper;
 import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.Agreement;
+import com.example.onlinebankingfinal.model.enums.AgreementStatus;
 import com.example.onlinebankingfinal.repository.AgreementRepository;
 import com.example.onlinebankingfinal.service.AccountService;
 import com.example.onlinebankingfinal.service.AgreementService;
@@ -52,10 +53,11 @@ public class AgreementServiceImpl implements AgreementService {
     }
 
     @Override
-    public void deleteAgreement(UUID agreementId){
-        Agreement existingAgreement = agreementRepository.findById(agreementId)
-                .orElseThrow(() -> new AgreementNotFoundException("Agreement not found!"));
-        agreementRepository.delete(existingAgreement);
+    public AgreementDTO deleteAgreement(UUID agreementId){
+        Agreement existingAgreement = getById(agreementId);
+        existingAgreement.setAgreementStatus(AgreementStatus.DELETED);
+        agreementRepository.save(existingAgreement);
+        return agreementMapper.toDto(existingAgreement);
     }
 
     @Override

@@ -22,37 +22,38 @@ public class ClientController {
     private final AccountService accountService;
 
     @PostMapping("/create")
-    public ResponseEntity<ClientDTO> createClient(@RequestBody Client client) {
-        ClientDTO createdCard = clientService.createClient(client);
-        return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO createClient(@RequestBody Client client) {
+        return clientService.createClient(client);
     }
 
     @GetMapping("/find/{clientId}")
-    public ResponseEntity<ClientDTO> getClientById(@PathVariable UUID clientId) {
-        ClientDTO foundedClient = clientService.getDtoById(clientId);
-        return new ResponseEntity<>(foundedClient, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO getClientById(@PathVariable UUID clientId) {
+        return clientService.getDtoById(clientId);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<ClientDTO>> getAllClients(){
-        List<ClientDTO> clientList = clientService.getAllClients();
-        return new ResponseEntity<>(clientList, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public List<ClientDTO> getAllClients(){
+        return clientService.getAllClients();
     }
 
     @PostMapping("/update/{clientId}")
-    public ResponseEntity<ClientDTO> updateClient(@PathVariable UUID clientId, @RequestBody ClientDTO clientDTO){
-        ClientDTO updatedClient = clientService.updateClient(clientId, clientDTO);
-        return new ResponseEntity<>(updatedClient, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO updateClient(@PathVariable UUID clientId, @RequestBody ClientDTO clientDTO){
+        return clientService.updateClient(clientId, clientDTO);
     }
 
-    @DeleteMapping("/delete/{clientId}")
-    public void deleteClient(@PathVariable UUID clientId){
-        clientService.deleteClient(clientId);
+    @PostMapping("/delete/{clientId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO deleteClient(@PathVariable UUID clientId){
+        return clientService.deleteClient(clientId);
     }
 
     @PostMapping("/{clientId}/createAccount")
-    public ResponseEntity<AccountFullDTO> createAccountByClient(@PathVariable UUID clientId,@RequestBody Account account){
-        AccountFullDTO thisAccount = accountService.createAccountByClient(clientId, account);
-        return new ResponseEntity<>(thisAccount, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public AccountFullDTO createAccountByClient(@PathVariable UUID clientId,@RequestBody Account account){
+        return accountService.createAccountByClient(clientId, account);
     }
 }

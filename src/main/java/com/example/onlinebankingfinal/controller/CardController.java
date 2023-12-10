@@ -19,37 +19,38 @@ public class CardController {
     private final CardService cardService;
 
     @PostMapping("/create")
-    public ResponseEntity<CardDTO> createCard(@RequestBody Card card) {
-        CardDTO createdCard = cardService.createCard(card);
-        return new ResponseEntity<>(createdCard, HttpStatus.CREATED);
+    @ResponseStatus(HttpStatus.OK)
+    public CardDTO createCard(@RequestBody Card card) {
+        return cardService.createCard(card);
     }
 
     @GetMapping("/find/{cardId}")
-    public ResponseEntity<CardDTO> getCardById(@PathVariable UUID cardId) {
-        CardDTO foundedCard = cardService.getDtoById(cardId);
-        return new ResponseEntity<>(foundedCard, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public CardDTO getCardById(@PathVariable UUID cardId) {
+        return cardService.getDtoById(cardId);
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<CardDTO>> getAllCards(){
-        List<CardDTO> cardsList = cardService.getAllCards();
-        return new ResponseEntity<>(cardsList, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public List<CardDTO> getAllCards(){
+        return cardService.getAllCards();
     }
 
     @PostMapping("/update/{cardId}")
-    public ResponseEntity<CardDTO> updateCard(@PathVariable UUID cardId, @RequestBody CardDTO cardDTO){
-        CardDTO updatedCard = cardService.updateCard(cardId, cardDTO);
-        return new ResponseEntity<>(updatedCard, HttpStatus.ACCEPTED);
+    @ResponseStatus(HttpStatus.OK)
+    public CardDTO updateCard(@PathVariable UUID cardId, @RequestBody CardDTO cardDTO){
+        return cardService.updateCard(cardId, cardDTO);
     }
 
     @DeleteMapping("/delete/{cardId}")
+    @ResponseStatus(HttpStatus.OK)
     public void deleteCard(@PathVariable UUID cardId){
         cardService.deleteCard(cardId);
     }
 
     @GetMapping("/{cardNumber}")
-    public ResponseEntity<CardFullDTO> findCardByCardNumber(@PathVariable String cardNumber){
-        CardFullDTO card = cardService.getCardByCardNumber(cardNumber);
-        return new ResponseEntity<>(card, HttpStatus.FOUND);
+    @ResponseStatus(HttpStatus.OK)
+    public CardFullDTO findCardByCardNumber(@PathVariable String cardNumber){
+        return cardService.getCardByCardNumber(cardNumber);
     }
 }

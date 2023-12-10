@@ -7,5 +7,6 @@ public enum ClientStatus {
     FROZEN,
     SUSPENDED,
     CLOSED,
-    RESTRICTED
+    RESTRICTED,
+    DELETED
 }

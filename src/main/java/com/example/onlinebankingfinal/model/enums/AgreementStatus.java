@@ -7,5 +7,6 @@ public enum AgreementStatus {
     SUSPENDED,
     CANCELED,
     TERMINATED,
-    UNDER_REVIEW
+    UNDER_REVIEW,
+    DELETED
 }

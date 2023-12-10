@@ -19,7 +19,7 @@ public interface ClientService {
 
     ClientDTO updateClient(UUID clientId, ClientDTO clientDTO);
 
-    void deleteClient(UUID clientId);
+    ClientDTO deleteClient(UUID clientId);
 
     ClientFullDTO createClientByManager(UUID managerId, Client client);
 

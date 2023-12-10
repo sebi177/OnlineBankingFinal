@@ -4,6 +4,7 @@ import com.example.onlinebankingfinal.dto.ClientDTO;
 import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.mapper.ClientMapper;
 import com.example.onlinebankingfinal.model.Client;
+import com.example.onlinebankingfinal.model.enums.ClientStatus;
 import com.example.onlinebankingfinal.repository.ClientRepository;
 import com.example.onlinebankingfinal.repository.ManagerRepository;
 import com.example.onlinebankingfinal.service.ClientService;
@@ -51,10 +52,11 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void deleteClient(UUID clientId) {
-        Client existingClient = clientRepository.findById(clientId)
-                .orElseThrow(() -> new EntityNotFoundException("Card not found!"));
-        clientRepository.delete(existingClient);
+    public ClientDTO deleteClient(UUID clientId) {
+        Client existingClient = getById(clientId);
+        existingClient.setClientStatus(ClientStatus.DELETED);
+        clientRepository.save(existingClient);
+        return clientMapper.toDto(existingClient);
     }
 
     @Override
