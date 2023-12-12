@@ -4,13 +4,16 @@ import com.example.onlinebankingfinal.dto.*;
 import com.example.onlinebankingfinal.model.Card;
 import com.example.onlinebankingfinal.model.enums.CardType;
 import com.example.onlinebankingfinal.service.AccountService;
+import com.example.onlinebankingfinal.service.exception.AccountNotFoundException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -20,12 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @AutoConfigureMockMvc
 @SpringBootTest
 @Sql("/delete_tables.sql")
 @Sql("/create_tables.sql")
 @Sql("/insert_tables.sql")
+@ActiveProfiles("test")
 public class AccountControllerTest {
 
     @Autowired
@@ -88,7 +93,7 @@ public class AccountControllerTest {
     void getAccountByIdNotFound() throws Exception {
 
         MvcResult mvcResult = mockMvc.perform(
-                        MockMvcRequestBuilders.get("/account/find/{accountId}}", "1234"))
+                        MockMvcRequestBuilders.get("/account/find/1234"))
                 .andReturn();
 
         assertEquals(500, mvcResult.getResponse().getStatus());

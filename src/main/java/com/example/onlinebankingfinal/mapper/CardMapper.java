@@ -15,19 +15,9 @@ public interface CardMapper {
 
     void updateCardFromDTO(CardDTO cardDTO, @MappingTarget Card card);
 
-    Card toCard(CardDTO cardDTO);
-
     CardDTO toDto(Card card);
 
     List<CardDTO> listToDto(List<Card> cardList);
-
-    @Mapping(source = "account", target = "account.accountId")
-    @Mapping(source = "client", target = "client.clientId")
-    void updateCard(CardFullDTO cardDTO, @MappingTarget Card card);
-
-    @Mapping(source = "account", target = "account.accountId")
-    @Mapping(source = "client", target = "client.clientId")
-    Card toCard(CardFullDTO cardDTO);
 
     @Mapping(source = "account.accountId", target = "account")
     @Mapping(source = "client.clientId", target = "client")

@@ -15,17 +15,9 @@ public interface ClientMapper {
 
     void updateClientFromDTO(ClientDTO clientDTO, @MappingTarget Client client);
 
-    Client toClient(ClientDTO clientDTO);
-
     ClientDTO toDto(Client client);
 
     List<ClientDTO> listToDto(List<Client> clientList);
-
-    @Mapping(source = "manager",target = "manager.managerId")
-    void updateClient(ClientFullDTO clientDTO, @MappingTarget Client client);
-
-    @Mapping(source = "manager",target = "manager.managerId")
-    Client toClient(ClientFullDTO clientDTO);
 
     @Mapping(source = "manager.managerId",target = "manager")
     ClientFullDTO toFullDto(Client client);

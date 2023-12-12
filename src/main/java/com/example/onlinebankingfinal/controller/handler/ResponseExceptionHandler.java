@@ -113,4 +113,11 @@ public class ResponseExceptionHandler {
         var error = new ErrorDTO(HttpURLConnection.HTTP_INTERNAL_ERROR, ex.getMessage());
         return ResponseEntity.status(HttpURLConnection.HTTP_INTERNAL_ERROR).body(error);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorDTO> handleNegativeBalanceException(NegativeBalanceThrowException ex){
+        log.error("NegativeBalanceException", ex);
+        var error = new ErrorDTO(HttpURLConnection.HTTP_INTERNAL_ERROR, ex.getMessage());
+        return ResponseEntity.status(HttpURLConnection.HTTP_INTERNAL_ERROR).body(error);
+    }
 }

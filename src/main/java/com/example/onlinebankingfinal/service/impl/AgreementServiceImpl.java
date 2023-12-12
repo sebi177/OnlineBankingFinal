@@ -13,6 +13,7 @@ import com.example.onlinebankingfinal.service.exception.AgreementNotFoundExcepti
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -61,6 +62,7 @@ public class AgreementServiceImpl implements AgreementService {
     }
 
     @Override
+    @Transactional
     public AgreementFullDTO createAgreementByAccount(UUID accountId, AgreementFullDTO agreement){
         agreement.setAccount(String.valueOf(accountId));
         Agreement thisAgreement = agreementMapper.toAgreement(agreement);

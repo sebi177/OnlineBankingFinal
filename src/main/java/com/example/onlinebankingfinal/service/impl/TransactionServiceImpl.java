@@ -26,7 +26,6 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public TransactionDTO createTransaction(Transaction transaction) {
-        accountService.updateBalance(transaction);
         return transactionMapper.toDto(transactionRepository.save(transaction));
     }
 
@@ -44,13 +43,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public List<TransactionDTO> getAllTransaction() {
         return transactionMapper.listToDto(transactionRepository.findAll());
-    }
-
-    @Override
-    public TransactionDTO updateTransaction(UUID transactionId, TransactionDTO transactionDTO) {
-        Transaction existingTransaction = getById(transactionId);
-        transactionMapper.updateTransactionFromDTO(transactionDTO, existingTransaction);
-        return transactionMapper.toDto(transactionRepository.save(existingTransaction));
     }
 
     @Override
@@ -79,21 +71,6 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.calculateStatisticsForAccount(accountId);
     }
 
-
-    @Override
-    public TransactionCardToCard transactionCardToCard(TransactionCardToCard transactionCardToCard){
-        CardFullDTO debitCard = cardService.getCardByCardNumber(transactionCardToCard.getDebitCardNumber());
-        CardFullDTO creditCard = cardService.getCardByCardNumber(transactionCardToCard.getCreditCardNumber());
-        TransactionFullDTO thisTransaction = new TransactionFullDTO();
-        thisTransaction.setTransactionType(transactionCardToCard.getTransactionType());
-        thisTransaction.setTransactionDescription(transactionCardToCard.getTransactionDescription());
-        thisTransaction.setTransactionAmount(transactionCardToCard.getTransactionAmount());
-        thisTransaction.setTransactionCurrencyCode(transactionCardToCard.getTransactionCurrencyCode());
-        thisTransaction.setDebitAccount(debitCard.getAccount());
-        thisTransaction.setCreditAccount(creditCard.getAccount());
-        performTransaction(thisTransaction);
-        return transactionCardToCard;
-    }
 }
 
 

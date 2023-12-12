@@ -18,8 +18,6 @@ public interface TransactionService {
 
     List<TransactionDTO> getAllTransaction();
 
-    TransactionDTO updateTransaction(UUID transactionId, TransactionDTO transactionDTO);
-
     TransactionDTO deleteTransaction(UUID transactionId);
 
     List<TransactionFullDTO> historyTransactions(UUID accountId);
@@ -28,5 +26,4 @@ public interface TransactionService {
 
     TransactionStatisticsDTO accountStatistic(UUID accountId);
 
-    TransactionCardToCard transactionCardToCard(TransactionCardToCard transactionCardToCard);
 }

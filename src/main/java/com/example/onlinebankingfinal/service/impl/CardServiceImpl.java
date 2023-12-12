@@ -59,8 +59,7 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public void deleteCard(UUID cardId) {
-        Card existingCard = cardRepository.findById(cardId)
-                .orElseThrow(() -> new CardNotFoundException("Card not found!"));
+        Card existingCard = getById(cardId);
         cardRepository.delete(existingCard);
     }
 
@@ -80,50 +79,4 @@ public class CardServiceImpl implements CardService {
         return cardMapper.toFullDto(existingCard);
     }
 
-    @Override
-    public CardFullDTO generateCard(Account account) {
-        Client thisClient = clientService.getById(account.getClient().getClientId());
-        Card newCard = new Card();
-        newCard.setAccount(account);
-        newCard.setClient(thisClient);
-        newCard.setCardHolder(generateCardHolder(thisClient));
-        newCard.setCardType(CardType.VISA);
-        newCard.setCardNumber(generateCardNumber(CardType.VISA));
-        newCard.setCvv(cvvGenerator());
-        cardRepository.save(newCard);
-        newCard.setExpirationDate(expirationDate(newCard.getCreatedAt()));
-        cardRepository.save(newCard);
-        return cardMapper.toFullDto(newCard);
-    }
-
-    public String generateCardHolder(Client client) {
-        return client.getFirstName() + " " + client.getLastName();
-    }
-
-    public String generateCardNumber(CardType cardType) {
-        int startingDigit = 0;
-
-        if (cardType == CardType.VISA) {
-            startingDigit = 4;
-        } else if (cardType == CardType.MASTERCARD){
-            startingDigit = 5;
-        }
-
-        StringBuilder cardNumber = new StringBuilder(String.valueOf(startingDigit));
-
-        for (int i = 0; i < 14; i++) {
-            int randomDigit = new Random().nextInt(10);
-            cardNumber.append(randomDigit);
-        }
-
-        return cardNumber.toString();
-    }
-
-    public LocalDateTime expirationDate(LocalDateTime createdAt) {
-        return createdAt.plusYears(3);
-    }
-
-    public Integer cvvGenerator() {
-        return new Random().nextInt(100, 1000);
-    }
 }

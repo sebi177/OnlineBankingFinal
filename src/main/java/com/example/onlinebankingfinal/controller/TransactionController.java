@@ -38,13 +38,7 @@ public class TransactionController {
         return transactionService.getAllTransaction();
     }
 
-    @PostMapping("/update/{transactionId}")
-    @ResponseStatus(HttpStatus.OK)
-    public TransactionDTO updateTransaction(@PathVariable UUID transactionId, @RequestBody TransactionDTO transactionDTO){
-        return transactionService.updateTransaction(transactionId, transactionDTO);
-    }
-
-    @DeleteMapping("/delete/{transactionId}")
+    @PostMapping("/delete/{transactionId}")
     @ResponseStatus(HttpStatus.OK)
     public TransactionDTO deleteTransaction(@PathVariable UUID transactionId){
         return transactionService.deleteTransaction(transactionId);
@@ -56,9 +50,4 @@ public class TransactionController {
         return transactionService.performTransaction(transaction);
     }
 
-    @PostMapping("/sendToCard")
-    @ResponseStatus(HttpStatus.OK)
-    public TransactionCardToCard transactionCardtoCard(@RequestBody TransactionCardToCard transaction){
-        return transactionService.transactionCardToCard(transaction);
-    }
 }

@@ -15,17 +15,9 @@ public interface ProductMapper {
 
     void updateProductFromDTO(ProductDTO productDTO, @MappingTarget Product product);
 
-    Product toProduct(ProductDTO productDTO);
-
     ProductDTO toDto(Product product);
 
     List<ProductDTO> listToDto(List<Product> productList);
-
-    @Mapping(source = "manager",target = "manager.managerId")
-    void updateProduct(ProductFullDTO productDTO, @MappingTarget Product product);
-
-    @Mapping(source = "manager",target = "manager.managerId")
-    Product toProduct(ProductFullDTO productDTO);
 
     @Mapping(source = "manager.managerId",target = "manager")
     ProductFullDTO toFullDto(Product product);

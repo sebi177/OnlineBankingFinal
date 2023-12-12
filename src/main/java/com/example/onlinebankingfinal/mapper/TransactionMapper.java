@@ -13,17 +13,9 @@ import java.util.List;
 @Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface TransactionMapper {
 
-    void updateTransactionFromDTO(TransactionDTO transactionDTO, @MappingTarget Transaction transaction);
-
-    Transaction toTransaction(TransactionDTO transactionDTO);
-
     TransactionDTO toDto(Transaction transaction);
 
     List<TransactionDTO> listToDto(List<Transaction> transactionList);
-
-    @Mapping(source = "debitAccount", target = "debitAccount.accountId")
-    @Mapping(source = "creditAccount", target = "creditAccount.accountId")
-    void updateTransaction(TransactionFullDTO transactionDTO, @MappingTarget Transaction transaction);
 
     @Mapping(source = "debitAccount", target = "debitAccount.accountId")
     @Mapping(source = "creditAccount", target = "creditAccount.accountId")

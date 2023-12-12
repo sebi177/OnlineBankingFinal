@@ -24,6 +24,4 @@ public interface CardService {
     CardFullDTO createCardByAccount(UUID accountId, Card card);
 
     CardFullDTO getCardByCardNumber(String cardNumber);
-
-    CardFullDTO generateCard(Account account);
 }
