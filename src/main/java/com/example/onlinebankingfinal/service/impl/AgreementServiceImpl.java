@@ -26,8 +26,9 @@ public class AgreementServiceImpl implements AgreementService {
     private final AccountService accountService;
 
     @Override
-    public AgreementDTO createAgreement(Agreement agreement) {
-        return agreementMapper.toDto(agreementRepository.save(agreement));
+    public AgreementDTO createAgreement(AgreementFullDTO agreement) {
+        Agreement newAgreement = agreementMapper.toAgreement(agreement);
+        return agreementMapper.toDto(agreementRepository.save(newAgreement));
     }
 
     @Override

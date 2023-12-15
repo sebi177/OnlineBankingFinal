@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface TransactionService {
-    TransactionDTO createTransaction(Transaction transaction);
+    TransactionDTO createTransaction(TransactionFullDTO transaction);
 
     Transaction getById(UUID transactionId);
 

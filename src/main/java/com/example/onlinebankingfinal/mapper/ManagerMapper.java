@@ -13,6 +13,8 @@ public interface ManagerMapper {
 
     void updateManagerFromDto(ManagerDTO managerDTO, @MappingTarget Manager manager);
 
+    Manager toEntity(ManagerDTO managerDTO);
+
     ManagerDTO toDto(Manager manager);
 
     List<ManagerDTO> listToDto(List<Manager> managerList);

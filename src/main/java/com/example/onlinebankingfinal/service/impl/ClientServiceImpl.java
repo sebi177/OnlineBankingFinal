@@ -24,8 +24,9 @@ public class ClientServiceImpl implements ClientService {
 
 
     @Override
-    public ClientDTO createClient(Client client) {
-        return clientMapper.toDto(clientRepository.save(client));
+    public ClientDTO createClient(ClientFullDTO client) {
+        Client newClient = clientMapper.toEntity(client);
+        return clientMapper.toDto(clientRepository.save(newClient));
     }
 
     @Override

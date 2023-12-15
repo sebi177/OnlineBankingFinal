@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ManagerService {
-    ManagerDTO createManager(Manager manager);
+    ManagerDTO createManager(ManagerDTO manager);
 
     Manager getById(UUID managerId);
 

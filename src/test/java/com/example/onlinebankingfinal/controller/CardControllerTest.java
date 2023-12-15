@@ -40,11 +40,19 @@ public class CardControllerTest {
 
     @Test
     void createCard() throws Exception{
-        CardDTO card = new CardDTO();
+        CardDTO expected = new CardDTO();
+        expected.setCardType("VISA");
+        expected.setCardNumber("8765432112345678");
+        expected.setCardHolder("Zhanna Jacot");
+        expected.setCvv("234");
+
+        CardFullDTO card = new CardFullDTO();
         card.setCardType("VISA");
         card.setCardNumber("8765432112345678");
         card.setCardHolder("Zhanna Jacot");
         card.setCvv("234");
+        card.setClient("a4283a17-e794-4f7f-bf74-0ce24f02bf92");
+        card.setAccount("50991763-ce2c-4862-827f-8cfacbd261e7");
 
         String json = objectMapper.writeValueAsString(card);
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/card/create")
@@ -57,7 +65,7 @@ public class CardControllerTest {
         CardDTO createdCard = objectMapper.readValue(mvcResult.getResponse().getContentAsString(),  new TypeReference<>() {
         });
 
-        assertEquals(createdCard, card);
+        assertEquals(createdCard, expected);
     }
 
     @Test

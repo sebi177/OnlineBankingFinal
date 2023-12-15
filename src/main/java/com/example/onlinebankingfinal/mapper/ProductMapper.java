@@ -15,6 +15,9 @@ public interface ProductMapper {
 
     void updateProductFromDTO(ProductDTO productDTO, @MappingTarget Product product);
 
+    @Mapping(source = "manager",target = "manager.managerId")
+    Product toEntity(ProductFullDTO productFullDTO);
+
     ProductDTO toDto(Product product);
 
     List<ProductDTO> listToDto(List<Product> productList);

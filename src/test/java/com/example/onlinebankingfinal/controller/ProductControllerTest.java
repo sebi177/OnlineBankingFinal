@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.ProductDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.model.Product;
 import com.example.onlinebankingfinal.model.enums.CurrencyCode;
 import com.example.onlinebankingfinal.model.enums.ProductStatus;
@@ -42,12 +43,20 @@ public class ProductControllerTest {
 
     @Test
     void createProduct() throws Exception{
-        Product create = new Product();
+        ProductDTO expected = new ProductDTO();
+        expected.setProductName("Test Product");
+        expected.setProductStatus("AVAILABLE");
+        expected.setProductLimit("1000");
+        expected.setInterestRate("5.5");
+        expected.setProductCurrencyCode("EUR");
+
+        ProductFullDTO create = new ProductFullDTO();
         create.setProductName("Test Product");
-        create.setProductStatus(ProductStatus.AVAILABLE);
-        create.setProductLimit(Integer.valueOf("1000"));
-        create.setInterestRate(Double.valueOf("5.5"));
-        create.setProductCurrencyCode(CurrencyCode.EUR);
+        create.setProductStatus("AVAILABLE");
+        create.setProductLimit("1000");
+        create.setInterestRate("5.5");
+        create.setProductCurrencyCode("EUR");
+        create.setManager("82d07ab4-7319-4ac0-af54-167663454b48");
 
         String json = objectMapper.writeValueAsString(create);
 
@@ -56,13 +65,6 @@ public class ProductControllerTest {
                 .content(json))
                 .andReturn();
         assertEquals(200, mvcResult.getResponse().getStatus());
-
-        ProductDTO expected = new ProductDTO();
-        expected.setProductName("Test Product");
-        expected.setProductStatus("AVAILABLE");
-        expected.setProductLimit("1000");
-        expected.setInterestRate("5.5");
-        expected.setProductCurrencyCode("EUR");
 
         ProductDTO returned = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<>() {
         });

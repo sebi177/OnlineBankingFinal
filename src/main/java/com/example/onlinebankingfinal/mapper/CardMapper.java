@@ -15,6 +15,11 @@ public interface CardMapper {
 
     void updateCardFromDTO(CardDTO cardDTO, @MappingTarget Card card);
 
+    @Mapping(source = "account", target = "account.accountId")
+    @Mapping(source = "client", target = "client.clientId")
+//    @Mapping(source = "card", target = "expirationDate.expirationDate")
+    Card toEntity(CardFullDTO cardFullDTO);
+
     CardDTO toDto(Card card);
 
     List<CardDTO> listToDto(List<Card> cardList);

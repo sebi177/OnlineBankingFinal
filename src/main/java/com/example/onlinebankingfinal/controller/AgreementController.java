@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.AgreementDTO;
+import com.example.onlinebankingfinal.dto.AgreementFullDTO;
 import com.example.onlinebankingfinal.model.Agreement;
 import com.example.onlinebankingfinal.service.AgreementService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class AgreementController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<AgreementDTO> createAgreement(@RequestBody Agreement agreement){
+    public ResponseEntity<AgreementDTO> createAgreement(@RequestBody AgreementFullDTO agreement){
         AgreementDTO createdAgreement = agreementService.createAgreement(agreement);
         return new ResponseEntity<>(createdAgreement, HttpStatus.OK);
     }

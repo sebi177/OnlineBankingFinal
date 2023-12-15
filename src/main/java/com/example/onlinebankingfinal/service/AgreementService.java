@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface AgreementService {
 
-    AgreementDTO createAgreement(Agreement agreement);
+    AgreementDTO createAgreement(AgreementFullDTO agreement);
 
     AgreementDTO getDtoById(UUID agreementId);
 

@@ -3,7 +3,6 @@ package com.example.onlinebankingfinal.service;
 import com.example.onlinebankingfinal.dto.AccountDTO;
 import com.example.onlinebankingfinal.dto.AccountFullDTO;
 import com.example.onlinebankingfinal.model.Account;
-import com.example.onlinebankingfinal.model.Client;
 import com.example.onlinebankingfinal.model.Transaction;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.UUID;
 
 public interface AccountService {
 
-    AccountDTO createAccount(Account account);
+    AccountDTO createAccount(AccountFullDTO account);
 
     AccountDTO getDtoById(UUID accountId);
 

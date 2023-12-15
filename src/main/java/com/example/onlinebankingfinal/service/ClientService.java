@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ClientService {
-    ClientDTO createClient(Client client);
+    ClientDTO createClient(ClientFullDTO client);
 
     Client getById(UUID clientId);
 

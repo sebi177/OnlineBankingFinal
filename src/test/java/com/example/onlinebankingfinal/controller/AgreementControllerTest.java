@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.AgreementDTO;
+import com.example.onlinebankingfinal.dto.AgreementFullDTO;
 import com.example.onlinebankingfinal.service.AgreementService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -39,11 +40,17 @@ public class AgreementControllerTest {
 
     @Test
     void createAgreement() throws Exception {
+        AgreementDTO expected = new AgreementDTO();
+        expected.setAgreementStatus("ACTIVE");
+        expected.setInterestRate("3.45");
+        expected.setAgreementSum("1000.0");
 
-        AgreementDTO existent = new AgreementDTO();
+        AgreementFullDTO existent = new AgreementFullDTO();
         existent.setAgreementStatus("ACTIVE");
         existent.setInterestRate("3.45");
         existent.setAgreementSum("1000.0");
+        existent.setAccount("50991763-ce2c-4862-827f-8cfacbd261e7");
+        existent.setProduct("7cb780c5-7b00-4e89-b8cf-0af4fc4a1a13");
 
         String json = objectMapper.writeValueAsString(existent);
 
@@ -57,7 +64,7 @@ public class AgreementControllerTest {
         AgreementDTO current = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<>() {
         });
 
-        assertEquals(existent, current);
+        assertEquals(expected, current);
     }
 
     @Test

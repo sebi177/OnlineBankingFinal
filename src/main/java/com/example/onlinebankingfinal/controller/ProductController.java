@@ -1,6 +1,7 @@
 package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.ProductDTO;
+import com.example.onlinebankingfinal.dto.ProductFullDTO;
 import com.example.onlinebankingfinal.model.Product;
 import com.example.onlinebankingfinal.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class ProductController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO createProduct(@RequestBody Product product) {
+    public ProductDTO createProduct(@RequestBody ProductFullDTO product) {
         return productService.createProduct(product);
     }
 

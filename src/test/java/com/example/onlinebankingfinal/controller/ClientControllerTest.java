@@ -2,6 +2,7 @@ package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.AccountFullDTO;
 import com.example.onlinebankingfinal.dto.ClientDTO;
+import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.enums.AccountStatus;
 import com.example.onlinebankingfinal.model.enums.AccountType;
@@ -53,7 +54,17 @@ public class ClientControllerTest {
         expectedClient.setTaxCode("123456789");
         expectedClient.setEmail("mihaimelnic@mail.com");
 
-        String json = objectMapper.writeValueAsString(expectedClient);
+        ClientFullDTO client = new ClientFullDTO();
+        client.setClientStatus("ACTIVE");
+        client.setFirstName("Mihai");
+        client.setLastName("Melnic");
+        client.setPhone("1234567890123");
+        client.setAddress("Main Str. 2");
+        client.setTaxCode("123456789");
+        client.setEmail("mihaimelnic@mail.com");
+        client.setManager("82d07ab4-7319-4ac0-af54-167663454b48");
+
+        String json = objectMapper.writeValueAsString(client);
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/client/create")
                         .contentType(MediaType.APPLICATION_JSON)

@@ -30,8 +30,9 @@ public class CardServiceImpl implements CardService {
     private final ClientService clientService;
 
     @Override
-    public CardDTO createCard(Card card) {
-        return cardMapper.toDto(cardRepository.save(card));
+    public CardDTO createCard(CardFullDTO card) {
+        Card newCard = cardMapper.toEntity(card);
+        return cardMapper.toDto(cardRepository.save(newCard));
     }
 
     @Override

@@ -20,7 +20,7 @@ public class CardController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.OK)
-    public CardDTO createCard(@RequestBody Card card) {
+    public CardDTO createCard(@RequestBody CardFullDTO card) {
         return cardService.createCard(card);
     }
 

@@ -20,8 +20,9 @@ public class ManagerServiceImpl implements ManagerService {
     private final ManagerMapper managerMapper;
 
     @Override
-    public ManagerDTO createManager(Manager manager){
-        return managerMapper.toDto(managerRepository.save(manager));
+    public ManagerDTO createManager(ManagerDTO manager){
+        Manager newManager = managerMapper.toEntity(manager);
+        return managerMapper.toDto(managerRepository.save(newManager));
     }
 
     @Override

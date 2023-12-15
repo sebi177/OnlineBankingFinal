@@ -27,8 +27,9 @@ public class ProductServiceImpl implements ProductService {
     private final ManagerService managerService;
 
     @Override
-    public ProductDTO createProduct(Product product){
-        return productMapper.toDto(productRepository.save(product));
+    public ProductDTO createProduct(ProductFullDTO product){
+        Product newProduct = productMapper.toEntity(product);
+        return productMapper.toDto(productRepository.save(newProduct));
     }
 
     @Override

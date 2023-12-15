@@ -4,14 +4,12 @@ import com.example.onlinebankingfinal.dto.*;
 import com.example.onlinebankingfinal.model.Card;
 import com.example.onlinebankingfinal.model.enums.CardType;
 import com.example.onlinebankingfinal.service.AccountService;
-import com.example.onlinebankingfinal.service.exception.AccountNotFoundException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -44,13 +41,20 @@ public class AccountControllerTest {
 
     @Test
     void createAccount() throws Exception {
+        AccountDTO expectAccount = new AccountDTO();
+        expectAccount.setAccountName("Porsche for my Wife");
+        expectAccount.setAccountType("SAVINGS");
+        expectAccount.setAccountStatus("ACTIVE");
+        expectAccount.setAccountBalance("98392.36");
+        expectAccount.setAccountCurrencyCode("EUR");
 
-        AccountDTO thisAccount = new AccountDTO();
+        AccountFullDTO thisAccount = new AccountFullDTO();
         thisAccount.setAccountName("Porsche for my Wife");
         thisAccount.setAccountType("SAVINGS");
         thisAccount.setAccountStatus("ACTIVE");
         thisAccount.setAccountBalance("98392.36");
         thisAccount.setAccountCurrencyCode("EUR");
+        thisAccount.setClient("a4283a17-e794-4f7f-bf74-0ce24f02bf92");
 
         String createdDto = objectMapper.writeValueAsString(thisAccount);
 
@@ -64,7 +68,7 @@ public class AccountControllerTest {
         AccountDTO currentAccount = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), new TypeReference<>() {
         });
 
-        assertEquals(thisAccount, currentAccount);
+        assertEquals(expectAccount, currentAccount);
     }
 
     @Test

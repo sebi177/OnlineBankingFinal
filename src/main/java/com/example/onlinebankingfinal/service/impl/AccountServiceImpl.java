@@ -30,8 +30,9 @@ public class AccountServiceImpl implements AccountService {
     private final CardRepository cardRepository;
 
     @Override
-    public AccountDTO createAccount(Account account) {
-        return accountMapper.toDTO(accountRepository.save(account));
+    public AccountDTO createAccount(AccountFullDTO account) {
+        Account newAccount = accountMapper.toEntity(account);
+        return accountMapper.toDTO(accountRepository.save(newAccount));
     }
 
     @Override

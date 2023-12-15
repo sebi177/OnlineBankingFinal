@@ -22,11 +22,11 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
     private final TransactionMapper transactionMapper;
     private final AccountService accountService;
-    private final CardService cardService;
 
     @Override
-    public TransactionDTO createTransaction(Transaction transaction) {
-        return transactionMapper.toDto(transactionRepository.save(transaction));
+    public TransactionDTO createTransaction(TransactionFullDTO transaction) {
+        Transaction newTransaction = transactionMapper.toTransaction(transaction);
+        return transactionMapper.toDto(transactionRepository.save(newTransaction));
     }
 
     @Override

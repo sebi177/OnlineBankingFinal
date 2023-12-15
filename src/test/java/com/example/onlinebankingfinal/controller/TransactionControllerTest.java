@@ -45,11 +45,13 @@ public class TransactionControllerTest {
 
     @Test
     void createTransaction() throws Exception {
-        Transaction create = new Transaction();
-        create.setTransactionType(TransactionType.TRANSFER);
-        create.setTransactionAmount(Double.valueOf("100.0"));
-        create.setTransactionCurrencyCode(CurrencyCode.EUR);
+        TransactionFullDTO create = new TransactionFullDTO();
+        create.setTransactionType("TRANSFER");
+        create.setTransactionAmount("100.0");
+        create.setTransactionCurrencyCode("EUR");
         create.setTransactionDescription("Test");
+        create.setCreditAccount("50991763-ce2c-4862-827f-8cfacbd261e7");
+        create.setDebitAccount("2115a101-bae8-49b1-87b5-1de5265ea492");
 
         String json = objectMapper.writeValueAsString(create);
 

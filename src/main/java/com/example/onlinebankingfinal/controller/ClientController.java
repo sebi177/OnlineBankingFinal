@@ -2,6 +2,7 @@ package com.example.onlinebankingfinal.controller;
 
 import com.example.onlinebankingfinal.dto.AccountFullDTO;
 import com.example.onlinebankingfinal.dto.ClientDTO;
+import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.model.Account;
 import com.example.onlinebankingfinal.model.Client;
 import com.example.onlinebankingfinal.service.AccountService;
@@ -23,7 +24,7 @@ public class ClientController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.OK)
-    public ClientDTO createClient(@RequestBody Client client) {
+    public ClientDTO createClient(@RequestBody ClientFullDTO client) {
         return clientService.createClient(client);
     }
 

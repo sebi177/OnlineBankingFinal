@@ -1,5 +1,6 @@
 package com.example.onlinebankingfinal.mapper;
 
+import com.example.onlinebankingfinal.dto.CardFullDTO;
 import com.example.onlinebankingfinal.dto.ClientDTO;
 import com.example.onlinebankingfinal.dto.ClientFullDTO;
 import com.example.onlinebankingfinal.model.Client;
@@ -14,6 +15,9 @@ import java.util.List;
 public interface ClientMapper {
 
     void updateClientFromDTO(ClientDTO clientDTO, @MappingTarget Client client);
+
+    @Mapping(source = "manager",target = "manager.managerId")
+    Client toEntity(ClientFullDTO clientFullDTO);
 
     ClientDTO toDto(Client client);
 
